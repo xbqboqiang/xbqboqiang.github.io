@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>problem library 01 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="#350.两个数的交集II给定两个数组，编写一个函数来计算它们的交集。 示例 1： 输入：nums1 &#x3D; [1, 2, 2, 1], nums2 &#x3D; [2, 2]输出：[2, 2]示例 2: 输入：nums1 &#x3D; [4, 9, 5], nums2 &#x3D; [9, 4, 9, 8, 4]输出：[4, 9] 来源：力扣（LeetCode）链接：https :&#x2F;&#x2F;leetcode-cn.com&#x2F;proble">
+<meta property="og:type" content="article">
+<meta property="og:title" content="problem library 01">
+<meta property="og:url" content="http://yoursite.com/2020/07/13/problem%20library%2001/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="#350.两个数的交集II给定两个数组，编写一个函数来计算它们的交集。 示例 1： 输入：nums1 &#x3D; [1, 2, 2, 1], nums2 &#x3D; [2, 2]输出：[2, 2]示例 2: 输入：nums1 &#x3D; [4, 9, 5], nums2 &#x3D; [9, 4, 9, 8, 4]输出：[4, 9] 来源：力扣（LeetCode）链接：https :&#x2F;&#x2F;leetcode-cn.com&#x2F;proble">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-13T14:51:44.247Z">
+<meta property="article:modified_time" content="2020-07-13T14:54:05.290Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-problem library 01" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/13/problem%20library%2001/" class="article-date">
+  <time datetime="2020-07-13T14:51:44.247Z" itemprop="datePublished">2020-07-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      problem library 01
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="350-两个数的交集II"><a href="#350-两个数的交集II" class="headerlink" title="#350.两个数的交集II"></a>#350.两个数的交集II</h2><p>给定两个数组，编写一个函数来计算它们的交集。</p>
+<p>示例 1：</p>
+<p>输入：nums1 = [1, 2, 2, 1], nums2 = [2, 2]<br>输出：[2, 2]<br>示例 2:</p>
+<p>输入：nums1 = [4, 9, 5], nums2 = [9, 4, 9, 8, 4]<br>输出：[4, 9]</p>
+<p>来源：力扣（LeetCode）<br>链接：https ://leetcode-cn.com/problems/intersection-of-two-arrays-ii<br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">intersect</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">		<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;v;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums1.<span class="built_in">size</span>(); i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; nums2.<span class="built_in">size</span>(); j++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span> (nums2[j] == nums1[i])</span><br><span class="line">				&#123;</span><br><span class="line">					v.push_back(nums1[i]);</span><br><span class="line">					<span class="keyword">if</span> (nums1.<span class="built_in">size</span>() &gt; <span class="number">1</span> &amp;&amp; nums2.<span class="built_in">size</span>() &gt; <span class="number">1</span>) &#123;</span><br><span class="line">						nums2.erase(nums2.<span class="built_in">begin</span>() + j);</span><br><span class="line">						nums1.erase(nums1.<span class="built_in">begin</span>() + i);</span><br><span class="line">						j--;</span><br><span class="line">						i--;</span><br><span class="line">					&#125;</span><br><span class="line">					<span class="keyword">else</span> &#123;</span><br><span class="line">						<span class="keyword">return</span> v;</span><br><span class="line">					&#125;</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> v;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="1512-好数对的数目"><a href="#1512-好数对的数目" class="headerlink" title="#1512. 好数对的数目"></a>#1512. 好数对的数目</h2><p>给你一个整数数组 nums 。</p>
+<p>如果一组数字(i, j) 满足 nums[i] == nums[j] 且 i &lt; j ，就可以认为这是一组 好数对 。</p>
+<p>返回好数对的数目。</p>
+<p>示例 1：</p>
+<p>输入：nums = [1, 2, 3, 1, 1, 3]<br>输出：4<br>解释：有 4 组好数对，分别是(0, 3), (0, 4), (3, 4), (2, 5) ，下标从 0 开始<br>示例 2：</p>
+<p>输入：nums = [1, 1, 1, 1]<br>输出：6<br>解释：数组中的每组数字都是好数对<br>示例 3：</p>
+<p>输入：nums = [1, 2, 3]<br>输出：0</p>
+<p>来源：力扣（LeetCode）<br>链接：https ://leetcode-cn.com/problems/number-of-good-pairs<br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">numIdenticalPairs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; nums.<span class="built_in">size</span>(); j++) &#123;</span><br><span class="line">				<span class="keyword">if</span> (nums[i] == nums[j]) &#123;</span><br><span class="line">					a++;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> a;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/13/problem%20library%2001/" data-id="ckckmo5qf0000awvecydmcsuk" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/13/cpp%20notes%20vector%2002/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">cpp notes--vector 02</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/13/problem%20library%2001/">problem library 01</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/13/cpp%20notes%20vector%2002/">cpp notes--vector 02</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/13/cpp%20notes%20string%2002/">cpp notes--string 02</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/12/cpp%20notes%20string%2001/">cpp notes--string 01</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/12/cpp%20notes%20vector%2001/">cpp notes--vector 01</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
