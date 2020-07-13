@@ -5,17 +5,17 @@
   
 
   
-  <title>cpp notes--string | Hexo</title>
+  <title>cpp notes--string 01 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="string是C++风格的字符串，而string本质上是一个类char* 是一个指针，string是一个类，封装了char* ， 是char型的容器string类内部封装了：find,copu,delete,replace,insertstring管理char所分配的内存，由类内部进行负责 123456789101112131415161718192021222324252627282930313">
 <meta property="og:type" content="article">
-<meta property="og:title" content="cpp notes--string">
+<meta property="og:title" content="cpp notes--string 01">
 <meta property="og:url" content="http://yoursite.com/2020/07/12/cpp%20notes%20string%2001/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="string是C++风格的字符串，而string本质上是一个类char* 是一个指针，string是一个类，封装了char* ， 是char型的容器string类内部封装了：find,copu,delete,replace,insertstring管理char所分配的内存，由类内部进行负责 123456789101112131415161718192021222324252627282930313">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-12T15:06:53.872Z">
-<meta property="article:modified_time" content="2020-07-12T15:19:18.180Z">
+<meta property="article:modified_time" content="2020-07-13T04:11:54.882Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -80,7 +80,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      cpp notes--string
+      cpp notes--string 01
     </h1>
   
 
@@ -91,10 +91,11 @@
         <p>string是C++风格的字符串，而string本质上是一个类<br>char* 是一个指针，string是一个类，封装了char* ， 是char<em>型的容器<br>string类内部封装了：find,copu,delete,replace,insert<br>string管理char</em>所分配的内存，由类内部进行负责</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">t01</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> s1;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">const</span> <span class="keyword">char</span>* str = <span class="string">"hello"</span>;</span><br><span class="line">	<span class="function"><span class="built_in">string</span> <span class="title">s2</span><span class="params">(str)</span></span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"s2 = "</span> &lt;&lt; s2 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="built_in">string</span> <span class="title">s3</span><span class="params">(s2)</span></span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"s3 = "</span> &lt;&lt; s3 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="built_in">string</span> <span class="title">s4</span><span class="params">(<span class="number">10</span>, <span class="string">'a'</span>)</span></span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"s4 = "</span> &lt;&lt; s4 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">t02</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> s1;</span><br><span class="line">	s1 = <span class="string">"hello"</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"s1 = "</span> &lt;&lt; s1 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">string</span> s2 = s1;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"s2 = "</span> &lt;&lt; s2 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">string</span> s3;</span><br><span class="line">	s3 = <span class="string">'a'</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"s3 = "</span> &lt;&lt; s3 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">string</span> s4;</span><br><span class="line">	s4.assign(<span class="string">"hello"</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"s4 = "</span> &lt;&lt; s4 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">string</span> s5;</span><br><span class="line">	s5.assign(<span class="string">"hello"</span>,<span class="number">3</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"s5 = "</span> &lt;&lt; s5 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">string</span> s6;</span><br><span class="line">	s6.assign(s5);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"s6 = "</span> &lt;&lt; s6 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">string</span> s7;</span><br><span class="line">	s7.assign(<span class="number">5</span>,<span class="string">'w'</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"s7 = "</span> &lt;&lt; s7 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="string-字符串拼接"><a href="#string-字符串拼接" class="headerlink" title="string 字符串拼接"></a>string 字符串拼接</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">t03</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> s1 = <span class="string">"我"</span>;</span><br><span class="line">	s1 += <span class="string">"爱学习"</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; s1 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	s1+=<span class="string">':'</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; s1 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">string</span> s2 = <span class="string">"数学"</span>;</span><br><span class="line">	s1 += s2;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; s1 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">string</span> s3 = <span class="string">"I"</span>;</span><br><span class="line">	s3.append(<span class="string">" love"</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; s3 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	s3.append(<span class="string">" learning math"</span>, <span class="number">10</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; s3 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	s3.append(s2);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; s3 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//从“0”开始截取“3”个字符</span></span><br><span class="line">	s3.append(s2, <span class="number">0</span>, <span class="number">3</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; s3 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/12/cpp%20notes%20string%2001/" data-id="ckcj8bsi200009wvegths8maz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/12/cpp%20notes%20string%2001/" data-id="ckcjzq2at0000j4ve7uxe61or" class="article-share-link">Share</a>
       
       
     </footer>
@@ -103,10 +104,19 @@
     
 <nav id="article-nav">
   
+    <a href="/2020/07/13/cpp%20notes%20string%2002/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          cpp notes--string 02
+        
+      </div>
+    </a>
+  
   
     <a href="/2020/07/12/cpp%20notes%20vector%2001/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">cpp notes--STL</div>
+      <div class="article-nav-title">cpp notes--vector 01</div>
     </a>
   
 </nav>
@@ -143,11 +153,15 @@
       <ul>
         
           <li>
-            <a href="/2020/07/12/cpp%20notes%20string%2001/">cpp notes--string</a>
+            <a href="/2020/07/13/cpp%20notes%20string%2002/">cpp notes--string 02</a>
           </li>
         
           <li>
-            <a href="/2020/07/12/cpp%20notes%20vector%2001/">cpp notes--STL</a>
+            <a href="/2020/07/12/cpp%20notes%20string%2001/">cpp notes--string 01</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/12/cpp%20notes%20vector%2001/">cpp notes--vector 01</a>
           </li>
         
           <li>
