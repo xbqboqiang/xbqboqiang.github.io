@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>DS邓俊辉 01 02 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="绪论计算：信息处理借助某种工具，遵照一定规则，以明确而机械的形式进行计算模型&#x3D;计算机&#x3D;信息处理工具算法：特定计算模型下，旨在解决特定问题的指令序列    输入：待处理的信息（问题）    输入：经处理的信息（答案）    正确性：的确可以解决指定的问题    确定性：任一算法都可以描述为一个由基本操作组成的序列    可行性：每一基本操作都可以实现，且在常数时间内完成    有穷性：对于任何输入，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DS邓俊辉 01 02">
+<meta property="og:url" content="http://yoursite.com/2020/07/18/DS%E9%82%93%E4%BF%8A%E8%BE%89-01-02/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="绪论计算：信息处理借助某种工具，遵照一定规则，以明确而机械的形式进行计算模型&#x3D;计算机&#x3D;信息处理工具算法：特定计算模型下，旨在解决特定问题的指令序列    输入：待处理的信息（问题）    输入：经处理的信息（答案）    正确性：的确可以解决指定的问题    确定性：任一算法都可以描述为一个由基本操作组成的序列    可行性：每一基本操作都可以实现，且在常数时间内完成    有穷性：对于任何输入，">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/07/18/DS%E9%82%93%E4%BF%8A%E8%BE%89-01-02/DS_md_files/image.png?v=1&type=image">
+<meta property="article:published_time" content="2020-07-18T13:00:09.000Z">
+<meta property="article:modified_time" content="2020-07-18T13:02:21.749Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="数据结构 邓俊辉">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/07/18/DS%E9%82%93%E4%BF%8A%E8%BE%89-01-02/DS_md_files/image.png?v=1&type=image">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-DS邓俊辉-01-02" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/18/DS%E9%82%93%E4%BF%8A%E8%BE%89-01-02/" class="article-date">
+  <time datetime="2020-07-18T13:00:09.000Z" itemprop="datePublished">2020-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      DS邓俊辉 01 02
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><p>计算：信息处理<br>借助某种工具，遵照一定规则，以明确而机械的形式进行<br>计算模型=计算机=信息处理工具<br>算法：特定计算模型下，旨在解决特定问题的指令序列<br>    输入：待处理的信息（问题）<br>    输入：经处理的信息（答案）<br>    正确性：的确可以解决指定的问题<br>    确定性：任一算法都可以描述为一个由基本操作组成的序列<br>    可行性：每一基本操作都可以实现，且在常数时间内完成<br>    有穷性：对于任何输入，经有穷次基本操作，都可以得到输出（hailstone(n)）</p>
+<p>好算法：<br>    正确：符合语法，能够编译、链接，能够处理简单的、大规模的、一般性的、退化的、任意合法的输入<br>    健壮：能够辨别不合法的输入并做适当处理，而不致非正常退出<br>    可读：结构化+准确命名+注释+ …<br>    效率：速度尽可能快，存储空间尽可能少 **</p>
+<p>算法分析<br>两个主要方面：<br>    正确性：算法功能与问题要求一致<br>    成本：运行时间+所需存储空间</p>
+<p>令Ta(n)=用算法a求解某一问题规模为n的实例，所需的计算成本<br>讨论特定算法a（及其对应的问题）时，简记作T(n)<br>稳妥起见，取T(n) = max{T(p)| |p|=n}，即规模同为n的所有实例中，只关注最坏（成本最高）者</p>
+<p>为给出客观判断，抽象出一个理想平台或模型，不依赖于具体因素，直接准确地描述、测量并评价算法<br>图灵机（Turing Machine）:<br>Tape:依次均匀地划分为单元格，各注有某一字符，默认为“#”<br>Alphabet : 字符的种类有限<br>Head : 总是对准某一单元格，并可读取和改写其中的字符，经过没一个节拍，可转向临格<br>State : TM总是处于有限种状态中的某一种，每经过一个节拍，可（按照规则）转向另一种状态<br>Transition Function : (q, c;d,L/R,p)<br>    若当前状态为q且字符为c，则将当前字符改写为d；转向左侧/右侧的临格；转入p状态<br>    一旦转入特定的状态’h’，则停机</p>
+<p>RAM(Random Access Machine)<br>寄存器顺序编号，总数没有限制R[0],R[1], …<br>每一基本操作仅需常数时间 R[i] &lt;- c , R[i] &lt;- R[R[j]] , IF R[i] &gt; 0 GOTO 1 ,GOTO 1  STOP<br>与TM模型一样，RAM模型也是一般计算工具的简化与抽象，使我们可以独立于具体的平台，对算法的效率做出可信的比较与评判<br>在这些模型中，算法的运行时间转换为算法需要执行的基本操作次数<br>T(n)=算法为求解规模为n的问题，所需执行的基本操作次数</p>
+<p>大O记号<br>T(n)=O(f(n)) iff 存在 c&gt;0，当n&gt;&gt;2后，有T(n)&lt;c*f(n)<br>常系数可以忽略、低次项可以忽略<br>常数复杂度O(1)，效率最高<br>对数O(logn)，复杂度无限接近于常数<br>从O(n^c)到O(2^n)是从有效算法到无效算法的分水岭<br>美国选举人制 538-&gt;260+269？  逐一枚举每一子集-&gt; 2^n</p>
+<p>算法分析<br>两个主要任务=正确性（不变性*单调性）+复杂度</p>
+<p>级数<br>算术级数：与末项平方同阶  T(n)=1+2+…+n =n(n+1)/2=O(n^2)<br>幂方级数：比幂次高出一阶 sigma(k=0-&gt;n)k^d=1/(d+1) *n^(d+1)=O(n^(d+1))<br>几何级数：与末项同阶  a^0+a^1+…+a^n=(a^(n+1)-1)/(a-1)=O(a^n)<br>收敛级数：1+1/3+1/7+… =1=O(1)<br>          1+1/2+1/3+…+1/n=O(logn)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line">起泡排序</span><br><span class="line">void bubblesort(int a[], int n))&#123;</span><br><span class="line">	for(bool sorted &#x3D;false;sorted&#x3D;!sorted;n--)</span><br><span class="line">		for(int i&#x3D;1;i&lt;n;i++)</span><br><span class="line">			if (a[i - 1] &gt; a[i]) &#123;</span><br><span class="line">				swap(a[i - 1], a[i]);</span><br><span class="line">				sorted &#x3D; false;</span><br><span class="line">			&#125;</span><br><span class="line">&#125;</span><br><span class="line">不变性：经过k轮扫描交换后，最大的k个元素必然就位</span><br><span class="line">单调性：经过k轮扫描交换后，问题规模缩减至n-k</span><br><span class="line">正确性：经至多n轮扫描后，算法必然中止，且能给出正确答案</span><br><span class="line"></span><br><span class="line">迭代与递归</span><br><span class="line">数组求和：线性递归</span><br><span class="line">sum(int a[], int n) &#123;</span><br><span class="line">	return (n &lt; 1) ? 0; sum(a, n - 1) + a[n - 1];</span><br><span class="line">&#125;</span><br><span class="line">T(n)&#x3D;O(1)*(n+1)&#x3D;O(n)</span><br><span class="line"></span><br><span class="line">任给数组a[0,n),将其前后颠倒</span><br><span class="line">void reverse(int* a, int lo, int hi) &#123;</span><br><span class="line">	if (lo &lt; hi) &#123;</span><br><span class="line">		swap(a[lo], a[hi]); reverse(a, ++lo, --hi);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">迭代版</span><br><span class="line">next:</span><br><span class="line">if (lo &lt; hi) &#123;</span><br><span class="line">	swap(a[lo], a[hi]; lo++, hi--;goto next)</span><br><span class="line">&#125;</span><br><span class="line">迭代精简版</span><br><span class="line">while (lo &lt; hi) swap(a[lo++], a[hi--]);</span><br><span class="line"></span><br><span class="line">数组求和：二分递归</span><br><span class="line">sum(int a[], int lo, int hi) &#123;</span><br><span class="line">	if (lo &#x3D;&#x3D; hi) return a[0];</span><br><span class="line">	int mi &#x3D; (lo + hi) &#x2F; 2;</span><br><span class="line">	return sum(a, lo, mi) + sum(a, mi + 1, hi);</span><br><span class="line">&#125;</span><br><span class="line">T(n)&#x3D;O(n)</span><br><span class="line"></span><br><span class="line">max2：迭代1</span><br><span class="line">从数组区间a[lo,hi)中找出最大的两个整数a[x1],a[x2]</span><br><span class="line">void max2(int a[], int lo, int hi, int&amp; x1, int&amp; x2) &#123;</span><br><span class="line">	for (x1 &#x3D; lo, int i &#x3D; lo + 1; i &lt; hi; i++)</span><br><span class="line">		if (a[i] &gt; a[x1])x1 &#x3D; i;</span><br><span class="line">	for (x2 &#x3D; lo, int i &#x3D; lo + 1; i &lt; x1; i++)</span><br><span class="line">		if (a[i] &gt; a[x2])x2 &#x3D; i;</span><br><span class="line">	for (int i &#x3D; x1 + 1; i &lt; hi; i++)</span><br><span class="line">		if (a[i] &gt; a[x2])x2 &#x3D; i;</span><br><span class="line">&#125;</span><br><span class="line">比较次数总是2n-3</span><br><span class="line"></span><br><span class="line">max2：迭代2</span><br><span class="line">void max2(int a[], int lo, int hi, int&amp; x1, int&amp; x2) &#123;</span><br><span class="line">	if (a[x1 &#x3D; lo] &lt; a[x2 &#x3D; lo + 1])swap(a[x1], a[x2]);</span><br><span class="line">	for (int i &#x3D; lo + 2; i &lt; hi; i++)</span><br><span class="line">		if (a[x2] &lt; a[i])</span><br><span class="line">			if (a[x1] &lt; a[x2 &#x3D; i])</span><br><span class="line">				swap(x1,x2);</span><br><span class="line">&#125;</span><br><span class="line">比较次数：（n-1）--（2n-3）</span><br><span class="line"></span><br><span class="line">max：递归+分治</span><br><span class="line">void max2(int a[], int lo, int hi, int&amp; x1, int&amp; x2) &#123;</span><br><span class="line">	if (lo + 2 &#x3D;&#x3D; hi) &#123;&#x2F;*  ...  *&#x2F; return &#125; &#x2F;&#x2F;T(2)&#x3D;1</span><br><span class="line">	if (lo + 3&#x3D;&#x3D; hi) &#123;&#x2F;*  ...  *&#x2F; return &#125; &#x2F;&#x2F;T(3)&lt;&#x3D;3</span><br><span class="line">	int mi &#x3D; (lo + hi) &#x2F; 2;</span><br><span class="line">	int x1l, x2l; max2(a, lo, mi, x1l, x2l);</span><br><span class="line">	int x1r, x2r; max2(a, mi+1,hi, x1r, x2r);</span><br><span class="line">	if (a[x1l] &gt; a[x1r]) &#123;</span><br><span class="line">		x1 &#x3D; x1l; x2 &#x3D; a[x2l] &gt; a[x1r] ? x2l : x1r;</span><br><span class="line">	&#125;else &#123;</span><br><span class="line">		x1 &#x3D; x1r; x2 &#x3D; a[x2r] &gt; a[x1l] ? x2r : x1l;</span><br><span class="line">	&#125;&#x2F;&#x2F;1+1&#x3D;2</span><br><span class="line">&#125;&#x2F;&#x2F;T(n)&#x3D;2*T(m&#x2F;2)+2&lt;&#x3D;5n&#x2F;3-2</span><br><span class="line"></span><br><span class="line">fib() :迭代</span><br><span class="line">自底而上：</span><br><span class="line">f &#x3D; 0; g &#x3D; 1; &#x2F;&#x2F;fib(0),fib(1)</span><br><span class="line">while (0 &lt; n--) &#123;</span><br><span class="line">	g &#x3D; g + f;</span><br><span class="line">	f &#x3D; g - f;</span><br><span class="line">&#125;</span><br><span class="line">return g;</span><br><span class="line">T(n)&#x3D;O(n)</span><br><span class="line"></span><br><span class="line">LCS:递归</span><br><span class="line">子序列（subsequent）：由序列中若干字符，按原相对次序构成</span><br><span class="line">最长公共子序列（longest common subsequent）：两个序列公共子序列中的最长者</span><br><span class="line">可能有多个，可能有歧义</span><br><span class="line">对于序列a[0,n],b[0.m],LCS三种情况：</span><br><span class="line">·n&#x3D;-1或m&#x3D;-1,则取作空序列（&quot;&quot;）</span><br><span class="line">·若a[n]&#x3D;&#39;x&#39;&#x3D;b[m],则取作LCS(a[0, n), b[0.m))+&#39;x&#39;</span><br><span class="line">·若a[n]!&#x3D;b[m]，则在LCS(a[0, n], b[0.m))和LCS(a[0, n), b[0.m])中取更长者</span><br><span class="line">指数复杂度</span><br></pre></td></tr></table></figure>
+<hr>
+<hr>
+<h1 id="向量"><a href="#向量" class="headerlink" title="向量"></a>向量</h1><p>抽象数据类型（Abstract Data Type）：数据模型+定义在该模型上的一组操作<br>数据结构（Data structure）：基于某种特定语言，实现ADT的一整套算法<br>向量是数字的抽象与泛化，由一组元素按现行次序封装而成<br>各元素与[0,)内的秩一一对应，元素的类型不限于基本类型，操作管理维护更加简化、统一于安全，可更为便捷地参与复杂数据结构的定制与实现<br><img src="DS_md_files/image.png?v=1&type=image" alt=""></p>
+<pre><code class="c++"><span class="built_in">vector</span>:
+<span class="keyword">typedef</span> <span class="keyword">int</span> Rank;<span class="comment">//秩</span>
+<span class="meta">#<span class="meta-keyword">define</span> DEFAULT _CAPACITY 3<span class="comment">//默认初始容量</span></span>
+<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;<span class="class"><span class="keyword">class</span> <span class="title">vector</span> {</span><span class="comment">//向量模板类</span>
+<span class="keyword">private</span>:Rank _size; <span class="keyword">int</span> _capacity; T* _elem;<span class="comment">//规模、容量、数据区</span>
+<span class="keyword">protected</span>:<span class="comment">/*...内部函数*/</span>
+<span class="keyword">public</span>:<span class="comment">/* ...构造函数、析构函数、只读接口、可写接口、遍历接口*/</span>
+};
+
+<span class="built_in">vector</span>(<span class="keyword">int</span> c = DEFAULT_CAPACITY)<span class="comment">//默认</span>
+{_elem = <span class="keyword">new</span> T[_capacity = c]; _size = <span class="number">0</span>;}
+<span class="built_in">vector</span>(T <span class="keyword">const</span>* A, Rank lo, Rank hi)<span class="comment">//数组区间复制</span>
+{copyFrom(A, lo, hi);}
+<span class="built_in">vector</span>(<span class="built_in">vector</span>&lt;T&gt;<span class="keyword">const</span>&amp; v, rank lo, rank hi)<span class="comment">//向量区间复制</span>
+{copyFrom(v._elem, lo, hi)}
+<span class="built_in">vector</span>(<span class="built_in">vector</span>&lt;T&gt;<span class="keyword">const</span>&amp; v)<span class="comment">//向量整体复制</span>
+{copyFrom(v._elem, <span class="number">0</span>, v._size);}
+
+~<span class="built_in">vector</span>() { <span class="keyword">delete</span>[] _elem; }<span class="comment">//释放内部空间</span>
+
+<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;<span class="comment">//T为基本类型，或已重载赋值操作符‘=’</span>
+<span class="keyword">void</span> Vector&lt;T&gt;::copyFrom(T* <span class="keyword">const</span> A, Rank lo, Rank hi) {
+    _elem = <span class="keyword">new</span> T[_capacity = <span class="number">2</span> * (hi - lo)];<span class="comment">//分配空间</span>
+    _size = <span class="number">0</span>;<span class="comment">//规模清零</span>
+    <span class="keyword">while</span> (lo &lt; hi)<span class="comment">//A[lo,hi)内的元素逐一</span>
+        _elem[_size++] = A[lo++];<span class="comment">//复制至_elem[0,hi-lo)</span>
+}
+
+若采用静态空间管理策略，容量_capacity固定，明显不足：
+上溢(<span class="built_in">overflow</span>):_elem[]不足以存放所有元素
+下溢(underflow):_elem[]中的元素寥寥无几（&lt;&lt;<span class="number">50</span>%）
+且一般应用环境难以准确预测空间需求量
+
+<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;
+<span class="keyword">void</span> Vector&lt;T&gt;::expand() { <span class="comment">//向量空间不足时扩容</span>
+    <span class="keyword">if</span> (_size &lt; _capacity)<span class="keyword">return</span>;<span class="comment">//尚未满员时，不必扩容</span>
+    _capacity = <span class="built_in">max</span>(_capacity, DEFAULT_CAPACITY);<span class="comment">//不低于最小容量</span>
+    T* oldElem = elem; _elem = <span class="keyword">new</span> T[_capacity &lt;&lt;= <span class="number">1</span>];<span class="comment">//容量加倍</span>
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; _size; i++)<span class="comment">//复制原向量内容</span>
+        _elem[i] = oldElem[i];<span class="comment">//T为基本类型，或已重载操作符‘=’</span>
+    <span class="keyword">delete</span>[] oldElem;<span class="comment">//释放原空间</span>
+}
+
+平均（期望）复杂度(average/expected complexity)
+根据数据结构各种操作出现概率的分别，将对应的成本加权平均
+各种可能的操作作为独立事件分别考察，割裂了操作直接的相关性和连贯性，往往不能准确地评判数据结构和算法的真实性能
+
+分摊复杂度（amortized complexity）
+对数据结构连续地实施足够多次操作，所需总体成本分摊至单次操作
+从实际可行的角度，对一系列操作做整体的考量，更加忠实地刻画可能的操作序列，更精准地评判真实性能
+
+元素访问：通过v.<span class="built_in">get</span>(r)和v.<span class="built_in">put</span>(r,e)接口读写
+若v[i]需重载操作符’[]‘
+<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;
+T&amp; Vector&lt;T&gt;::<span class="keyword">operator</span>[](Rank r)<span class="keyword">const</span> { <span class="keyword">return</span> _elem[r]; }
+
+插入：
+<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
+Rank Vector&lt;T&gt;::insert(Rank r, T <span class="keyword">const</span>&amp; e) {<span class="comment">//e作为秩为r元素插入，0&lt;&lt;r&lt;&lt;size</span>
+    expand();<span class="comment">//若有必要，扩容</span>
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = _size; i &gt; r; i--)<span class="comment">//自后向前</span>
+        _elen[i] = _elem[i - <span class="number">1</span>];<span class="comment">//后继元素顺次后移一个单元</span>
+    _elem[r] = e; _size++;<span class="comment">//置入新元素，更新容量</span>
+    <span class="keyword">return</span> r;<span class="comment">//返回秩</span>
+}
+
+区间删除：
+<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;<span class="comment">//删除区间[lo,hi),0&lt;=lo&lt;=hi&lt;=size</span>
+<span class="keyword">int</span> Vector&lt;T&gt;::<span class="built_in">remove</span>(Rank lo, Rank hi) {<span class="comment">//O(n-hi)</span>
+    <span class="keyword">if</span> (lo == hi)<span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//出于效率考虑，单独处理退化情况</span>
+    <span class="keyword">while</span> (hi &lt; _size)_elem[lo++] = _elem[hi++];<span class="comment">//[hi,_size)顺次前移hi-lo位</span>
+    _size = lo; shrink();<span class="comment">//更新规模，若有必要则缩容</span>
+    <span class="keyword">return</span> hi - lo;<span class="comment">//返回被删除元素的数目</span>
+}
+
+查找：
+无序向量：T为可判等的基本类型，或已重载操作符“==”或“！=”
+有序向量：T为可比较的基本类型，或已重载操作符“&lt;”或“&gt; ”
+<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;<span class="comment">//0&lt;=lo&lt;hi&lt;=_size</span>
+Rank Vector&lt;T&gt;::<span class="built_in">find</span>(T <span class="keyword">const</span>&amp; e, Rank lo, Rank hi)<span class="keyword">const</span>
+{  <span class="comment">//O(hi-lo)=O(n),在命中多个元素时可返回秩最大者</span>
+    <span class="keyword">while</span> ((lo &lt; hi--) &amp;&amp; (e != _elem[hi]));<span class="comment">//逆向查找</span>
+    <span class="keyword">return</span> hi;<span class="comment">//hi&lt;lo意味着失败；否则hi即命中元素的秩</span>
+}<span class="comment">//Excel::match(e,range,type)</span>
+
+ 单元素删除：
+可以视作区间删除的特例：[r]=[r,r+<span class="number">1</span>)
+<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;<span class="comment">//删除向量中秩为r的元素,0&lt;=r&lt;size</span>
+ T Vector&lt;T&gt;::<span class="built_in">remove</span>(Rank r) {<span class="comment">//O(n-r)</span>
+     T e = _elem[r];<span class="comment">//备份被删除元素</span>
+     <span class="built_in">remove</span>(r, r + <span class="number">1</span>);<span class="comment">//调用区间删除法</span>
+     <span class="keyword">return</span> e;<span class="comment">//返回被删除元素</span>
+ }
+
+ 唯一化：算法
+<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;<span class="comment">//删除重复元素，返回被删除元素数目</span>
+ <span class="keyword">int</span> Vector&lt;T&gt;::deduplicate() {
+     <span class="keyword">int</span> oldSize = _size;<span class="comment">//记录原规模</span>
+     Rank i = <span class="number">1</span>;<span class="comment">//从_elem[1]开始</span>
+     <span class="keyword">while</span> (i &lt; _size)<span class="comment">//自前向后逐一考察各元素_elem[i]</span>
+         (<span class="built_in">find</span>(_elem[i], <span class="number">0</span>, i) &lt; <span class="number">0</span>) ?<span class="comment">//在前缀中寻找雷同者</span>
+         i++<span class="comment">//若无雷同则继续考察其后继</span>
+         : <span class="built_in">remove</span>(i);<span class="comment">//否则删除雷同者</span>
+     <span class="keyword">return</span> oldSize - _size;<span class="comment">//向量规模变化量，即删除元素总数</span>
+ }
+
+ 遍历：
+<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;
+ <span class="keyword">void</span> Vector&lt;T&gt;::traverse(<span class="keyword">void</span> (*visit)(T&amp;))  <span class="comment">//函数指针</span>
+ {<span class="keyword">for</span> (<span class="keyword">int</span> i - <span class="number">0</span>; i &lt; _size; i++)visit(_elem[i]);}
+
+ <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;
+ <span class="keyword">void</span> Vector&lt;T&gt;::traverse(VST&amp; visit)  <span class="comment">//函数对象</span>
+ {<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; _size; i++)visit(_elem[i]); }
+
+ 实例：统一将向量中所有元素分别加一
+<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="comment">//假设T可直接递增或已重载操作符“++”</span>
+ <span class="class"><span class="keyword">struct</span> <span class="title">Inctrase</span> {</span>  <span class="comment">//函数对象：通过重载操作符“（）”实现</span>
+     <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">operator</span><span class="params">()</span><span class="params">(T&amp; e)</span> </span>{ e++; }<span class="comment">//加一</span>
+ };
+ <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;<span class="function"><span class="keyword">void</span> <span class="title">increase</span><span class="params">(Vector&lt;T&gt;&amp; V)</span> </span>{
+     v.traverse(Increase&lt;T&gt;());  <span class="comment">//即可以之为基本操作遍历向量</span>
+ }
+
+ 有序向量：
+有序性及其甄别：
+<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;  <span class="comment">//返回逆序相邻元素对的总数</span>
+ <span class="keyword">int</span> Vector&lt;T&gt;::disordered() <span class="keyword">const</span> {
+     <span class="keyword">int</span> n = <span class="number">0</span>;  <span class="comment">//计数器</span>
+     <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; _size; i++)  <span class="comment">//逐一检查各对相邻元素</span>
+         n += (_elelm[i - <span class="number">1</span>] &gt; _elem[i]);<span class="comment">//逆序则计数</span>
+     <span class="keyword">return</span> n; <span class="comment">//向量有序当且仅当n=0</span>
+ } <span class="comment">//若只需判断是否有序，首次需要逆序对之后即可立即终止</span>
+
+ 有序向量唯一化：
+<span class="keyword">template</span>&lt;tpyename T&gt;<span class="keyword">int</span> Vector&lt;T&gt;::uniquify() { <span class="comment">//低效版</span>
+     <span class="keyword">int</span> oldSize = _size; <span class="keyword">int</span> i = <span class="number">0</span>;
+     <span class="keyword">while</span> (i &lt; _size - <span class="number">1</span>)
+         (_elem[i] == _elem[i + <span class="number">1</span>]) ? <span class="built_in">remove</span>(i + <span class="number">1</span>) : i++;
+     <span class="keyword">return</span> oldSize - _size;
+ }
+
+ <span class="keyword">template</span>&lt;tpyename T&gt;<span class="keyword">int</span> Vector&lt;T&gt;::uniquify() {  <span class="comment">//高效版</span>
+     Rank i = <span class="number">0</span>, j = <span class="number">0</span>; <span class="comment">//各对互异“相邻”元素的秩</span>
+     <span class="keyword">while</span> (++j &lt; _size)  <span class="comment">//逐一扫描，直至末元素</span>
+         <span class="keyword">if</span> (_elem[i] != _elem[j])_elem[++i] = _elem[j];
+         <span class="comment">//跳过雷同者；发现不同元素时，向前移至邻于前者右侧</span>
+     _size = ++i; shrink(); <span class="comment">//直接截除尾部多余元素</span>
+     <span class="keyword">return</span> j - i; <span class="comment">//向量规模变化量，即被删除元素总数</span>
+ }
+ 共n<span class="number">-1</span>次迭代，每次常数时间，累计O(n)时间
+
+二分查找：
+Vector::search(e,lo,hi)
+
+<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="comment">//查找算法统一接口，0&lt;=lo&lt;hi&lt;=_size</span>
+ Rank Vector&lt;T&gt;::search(T <span class="keyword">const</span>&amp; e, Rank lo, Rank hi)<span class="keyword">const</span> {
+    <span class="keyword">return</span>(rand()%<span class="number">2</span>)? <span class="comment">//按各50%的概率随机选用</span>
+        binSearch(_elem,e,lo,hi) <span class="comment">//二分查找算法，或者</span>
+        :fibSearch(_elem,e,lo,hi) <span class="comment">//Fibonacci查找算法</span>
+ }
+ 语义约定：
+应该便于有序向量自身的维护：v.insert(<span class="number">1</span>+v.search(e),e)
+约定：在有序向量区间[lo,hi)中，确定不大于e的最后一个元素
+若e&lt;v[lo],则返回lo<span class="number">-1</span>；若v[hi<span class="number">-1</span>]&lt;e,则返回hi<span class="number">-1</span>
+
+二分查找：
+<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;  <span class="comment">//在有序向量区间[lo,hi)内查找元素e</span>
+ <span class="keyword">static</span> Rank binSearch(T* A, T <span class="keyword">const</span>&amp; e, Rank lo, Rank hi) {
+     <span class="keyword">while</span> (lo &lt; hi) {  <span class="comment">//每部迭代可能需要做两次比较判断，有三个分支</span>
+         Rank mi = (lo + hi) &gt;&gt; <span class="number">1</span>; <span class="comment">//以中点为轴点</span>
+         <span class="keyword">if</span> (e &lt; A[mi])hi = mi; <span class="comment">//深入前半段[lo,hi)继续查找</span>
+         <span class="keyword">else</span> <span class="keyword">if</span> (A[mi] &lt; e)lo = mi + <span class="number">1</span>; <span class="comment">//深入后半段(mi,hi)</span>
+         <span class="keyword">else</span> <span class="keyword">return</span> mi; <span class="comment">//在mi处命中</span>
+     }
+     <span class="keyword">return</span> <span class="number">-1</span>; <span class="comment">//查找失败</span>
+ }
+ 线性递归：T(n)=T(n/<span class="number">2</span>)+O(<span class="number">1</span>)=O(logn),大大优于顺序查找
+ 递归跟踪：轴点总取中点，递归深度O(logn)；各递归实例均耗时O(<span class="number">1</span>)
+
+Fibonacci查找：
+上一版本转向左右的比较次数不同（左<span class="number">1</span>右<span class="number">2</span>），而递归深度却相同，对其进行补偿
+设n=fib(k)<span class="number">-1</span>,则可取mi=fib(k<span class="number">-1</span>)<span class="number">-1</span>,前：fib(k<span class="number">-1</span>)<span class="number">-1</span>,后：fib(k<span class="number">-2</span>)<span class="number">-1</span>
+<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;  <span class="comment">//0 &lt;= lo &lt; hi &lt;= _size</span>
+ <span class="keyword">static</span> Rank fibSearch(T * A, T <span class="keyword">const</span>&amp; e, Rank lo, Rank hi) {
+     Fib fib(hi - lo); {
+         <span class="keyword">while</span> (hi - lo &lt; fib.<span class="built_in">get</span>())fib.prev();
+         Rank mi = lo + fib.<span class="built_in">get</span>() - <span class="number">1</span>;  <span class="comment">//按黄金比例切分</span>
+         <span class="keyword">if</span> (e &lt; A[mi])hi = mi;
+         <span class="keyword">else</span> <span class="keyword">if</span> (A[mi] &lt; e)lo = mi + <span class="number">1</span>;
+         <span class="keyword">else</span> <span class="keyword">return</span> mi;
+     }
+     <span class="keyword">return</span> <span class="number">-1</span>;
+ }
+
+ 二分查找版本B：
+<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;
+ <span class="function"><span class="keyword">static</span> Rank <span class="title">binSearch</span><span class="params">(T* A, T <span class="keyword">const</span>&amp; e, Rank lo, Rank hi)</span> </span>{
+     <span class="keyword">while</span> (<span class="number">1</span> &lt; hi - lo) {  <span class="comment">//有效查找区间宽度缩至1时，算法才会终止</span>
+         Rank mi = (lo + hi) &gt;&gt; <span class="number">1</span>;  <span class="comment">//以中点为轴点，经比较后确定深入</span>
+         (e &lt; A[mi]) ? hi = mi : lo = mi;  <span class="comment">//[lo,mi)或[mi,hi)</span>
+     }  <span class="comment">//出口时hi=lo+1,查找区间仅含有一个元素A[lo]</span>
+     <span class="keyword">return</span>(e == A[lo]) ? lo : <span class="number">-1</span>;
+ }  <span class="comment">//相对版本A，最好(坏)的情况下更(好)；各种情况下的SL更加接近，整体性能更趋稳定</span>
+
+ 当有多个命中元素时，必须返回最靠后（秩最大）折；失败时应返回小于e的最大者（含哨兵[lo<span class="number">-1</span>]）
+版本c：
+<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;
+ <span class="function"><span class="keyword">static</span> Rank <span class="title">binSearch</span><span class="params">(T* A, T <span class="keyword">const</span>&amp; e, Rank lo, Rank hi)</span> </span>{
+     <span class="keyword">while</span> (lo&lt;hi) {  <span class="comment">//不变性：A[0,lo)&lt;=e&lt;A[hi,n)</span>
+         Rank mi = (lo + hi) &gt;&gt; <span class="number">1</span>;  <span class="comment">//以中点为轴点，经比较后确定深入</span>
+         (e &lt; A[mi]) ? hi = mi : lo = mi+<span class="number">1</span>;  <span class="comment">//[lo,mi)或(mi,hi)</span>
+     }  <span class="comment">//出口时,A[lo=hi]为大于e的最小元素</span>
+     <span class="keyword">return</span> --lo; <span class="comment">//故lo-1即不大于e的元素的最大秩</span>
+ }
+
+差值查找：
+假设：已知有序向量中各元素随机分布的规律，通过猜测轴点mi，可以极大提高收敛速度
+mi=lo+(hi-lo)*(e-A[lo])/(A[hi]-A[lo])
+最坏情况:O(n)
+平均情况：经每一次比较，n缩至n^<span class="number">0.5</span> , k&gt;loglogn
+对n的二进制宽度做二分查找
+通常优势不明显，除非查找区间宽度极大，或者比较操作成本极高
+易受小扰动的干扰
+大规模-》插值查找；中-》折半查找；小-》顺序查找
+
+起泡排序：
+<span class="keyword">template</span>&lt;tpyename T&gt;<span class="keyword">void</span> Vector&lt;T&gt;::bubbleSort(Rank lo, Rank hi)
+{<span class="keyword">while</span> (!bubble(lo, hi--));}
+<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;<span class="keyword">bool</span> Vector&lt;T&gt;::bubble(Rank lo, Rank hi) {
+    <span class="keyword">bool</span> sorted = <span class="literal">true</span>; <span class="comment">//整体有序标志</span>
+    <span class="keyword">while</span>(++lo&lt;hi)  <span class="comment">//自左向右，逐一检查各对相邻元素</span>
+        <span class="keyword">if</span> (_elem[lo - <span class="number">1</span>] &gt; _elem[lo]) { <span class="comment">//若逆序，则</span>
+            sorted = <span class="literal">false</span>;  <span class="comment">//整体尚未有序，则</span>
+            swap(_elem[lo - <span class="number">1</span>], _elem[lo]); <span class="comment">//交换</span>
+        }
+    <span class="keyword">return</span> sorted;  <span class="comment">//返回有序标志</span>
+} 
+
+改进版：
+<span class="keyword">template</span>&lt;tpyename T&gt;<span class="keyword">void</span> Vector&lt;T&gt;::bubbleSort(Rank lo, Rank hi)
+{<span class="keyword">while</span> (lo&lt;(hi=bubble(lo, hi)));}
+<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;<span class="keyword">bool</span> Vector&lt;T&gt;::bubble(Rank lo, Rank hi) {
+    Rank last = lo; <span class="comment">//最右侧的逆序对初始化为[lo-1,lo]</span>
+    <span class="keyword">while</span> (++lo &lt; hi)  <span class="comment">//自左向右，逐一检查各对相邻元素</span>
+        <span class="keyword">if</span> (_elem[lo - <span class="number">1</span>] &gt; _elem[lo]) { <span class="comment">//若逆序，则</span>
+            last = lo;  <span class="comment">//更新最右侧逆序对位置记录，并</span>
+            swap(_elem[lo - <span class="number">1</span>], _elem[lo]); <span class="comment">//交换</span>
+        }
+    <span class="keyword">return</span> last;
+}
+改进前后均为O(n^<span class="number">2</span>)
+
+归并排序：
+序列一分为二；子序列递归排序；合并有序子序列
+<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;
+<span class="keyword">void</span> Vector&lt;T&gt;::mergeSort(Rank lo, Rank hi) {
+    <span class="keyword">if</span> (hi - lo &lt; <span class="number">2</span>)<span class="keyword">return</span>; <span class="comment">//单元数区间自然有序，否则</span>
+    <span class="keyword">int</span> mi = (lo + hi) &gt;&gt; <span class="number">1</span>; <span class="comment">//以中点为界</span>
+    mergeSort(lo, mi); <span class="comment">//对前半段排序</span>
+    mergeSort(mi, hi); <span class="comment">//对前半段排序</span>
+    merge(lo, mi, hi); <span class="comment">//归并</span>
+}
+
+二路归并算法：
+<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;<span class="keyword">void</span> Vector&lt;T&gt;::merge(Rank lo, Rank hi) {
+    T* A = _elem + lo; <span class="comment">//合并后的向量A[0,hi-lo)=_elem[lo,hi)</span>
+    <span class="keyword">int</span> lb = mi - lo; T* B = <span class="keyword">new</span> T[lb]; <span class="comment">//前子向量B[0,lb)=_elem[lo,mi)</span>
+    <span class="keyword">for</span> (Rank i = <span class="number">0</span>; i &lt; lb; B[i] = A[i++]); <span class="comment">//复制前子向量B</span>
+    <span class="keyword">int</span> lc = hi - mi; T* C = _elem + mi; <span class="comment">//后子向量C[0,lc)=_elem[mi,hi)</span>
+    <span class="keyword">for</span> (Rank i = <span class="number">0</span>, j = <span class="number">0</span>, k = <span class="number">0</span>; (j &lt; lb) || (k &lt; lc);) { <span class="comment">//B[j]和C[k]中小者转至A的末尾</span>
+        <span class="keyword">if</span> ((j &lt; lb) &amp;&amp; (lc &lt;= k || (B[j] &lt; C[k])))A[i++] = B[j++]; <span class="comment">//C[k]已无或不小</span>
+        <span class="keyword">if</span> ((k &lt; lc) &amp;&amp; (lb &lt;= j || (c[k] &lt; B[j])))A[i++] = C[k++];<span class="comment">//B[j]已无或更大</span>
+    }
+    <span class="keyword">delete</span>[] B;
+}
+
+部分精简：不需要考虑B提前耗尽后的情况
+<span class="keyword">for</span> (Rank i = <span class="number">0</span>, j = <span class="number">0</span>, k = <span class="number">0</span>; j &lt; lb;) { <span class="comment">//B[j]和C[k]中小者转至A的末尾</span>
+    <span class="keyword">if</span> (lc &lt;= k || (B[j] &lt; C[k]))A[i++] = B[j++]; <span class="comment">//C[k]已无或不小</span>
+    <span class="keyword">if</span> ((k &lt; lc) &amp;&amp; (c[k] &lt; B[j]))A[i++] = C[k++];<span class="comment">//B[j]已无或更大</span>
+}
+O(n)</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/18/DS%E9%82%93%E4%BF%8A%E8%BE%89-01-02/" data-id="ckcrnvoi00000q8ve6th9b0z3" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%82%93%E4%BF%8A%E8%BE%89/" rel="tag">数据结构 邓俊辉</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/16/cpp-notes-%E9%9B%86%E5%90%88%E7%AE%97%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">cpp notes 集合算法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp-notes/" rel="tag">cpp notes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/problem-library/" rel="tag">problem library</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reading-notes-DS/" rel="tag">reading notes DS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%82%93%E4%BF%8A%E8%BE%89/" rel="tag">数据结构 邓俊辉</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/cpp-notes/" style="font-size: 20px;">cpp notes</a> <a href="/tags/problem-library/" style="font-size: 10px;">problem library</a> <a href="/tags/reading-notes-DS/" style="font-size: 10px;">reading notes DS</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%82%93%E4%BF%8A%E8%BE%89/" style="font-size: 10px;">数据结构 邓俊辉</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/18/DS%E9%82%93%E4%BF%8A%E8%BE%89-01-02/">DS邓俊辉 01 02</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/16/cpp-notes-%E9%9B%86%E5%90%88%E7%AE%97%E6%B3%95/">cpp notes 集合算法</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/16/cpp-notes-%E7%AE%97%E6%9C%AF%E7%94%9F%E6%88%90%E7%AE%97%E6%B3%95/">cpp notes 算术生成算法</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/16/cpp-notes-%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%95/">cpp notes 拷贝和替换算法</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/16/cpp-notes-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">cpp notes 排序算法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
