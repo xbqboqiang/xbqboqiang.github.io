@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>DS邓俊辉09 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="散列散列(Hashing)call-by-value桶(bucket):直接存放活间接指向一个词条桶数组(bucket array)&#x2F;散列表(hash table)，容量为M N&lt;M&lt;&lt;R 空间O(N+M)&#x3D;O(N)定址&#x2F;杂凑&#x2F;散列：根据词条的key直接确定散列表入口散列函数：hash():key-&gt;&amp;entry装填因子(load factor)λ&#x3D;N&#x2F;M散列函数(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DS邓俊辉09">
+<meta property="og:url" content="http://yoursite.com/2020/07/26/DS%E9%82%93%E4%BF%8A%E8%BE%8909/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="散列散列(Hashing)call-by-value桶(bucket):直接存放活间接指向一个词条桶数组(bucket array)&#x2F;散列表(hash table)，容量为M N&lt;M&lt;&lt;R 空间O(N+M)&#x3D;O(N)定址&#x2F;杂凑&#x2F;散列：根据词条的key直接确定散列表入口散列函数：hash():key-&gt;&amp;entry装填因子(load factor)λ&#x3D;N&#x2F;M散列函数(">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-26T13:32:35.000Z">
+<meta property="article:modified_time" content="2020-07-26T13:33:16.821Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="数据结构 邓俊辉">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-DS邓俊辉09" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/26/DS%E9%82%93%E4%BF%8A%E8%BE%8909/" class="article-date">
+  <time datetime="2020-07-26T13:32:35.000Z" itemprop="datePublished">2020-07-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      DS邓俊辉09
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="散列"><a href="#散列" class="headerlink" title="散列"></a>散列</h1><p>散列(Hashing)call-by-value<br>桶(bucket):直接存放活间接指向一个词条<br>桶数组(bucket array)/散列表(hash table)，容量为M N&lt;M&lt;&lt;R 空间O(N+M)=O(N)<br>定址/杂凑/散列：根据词条的key直接确定散列表入口<br>散列函数：hash():key-&gt;&amp;entry<br>装填因子(load factor)λ=N/M<br>散列函数(hash())：<br>确定(determinism)同一关键码总是被映射至同一地址；快速(efficiency)expected-O(1)；满射(surjection)：尽可能充分地覆盖整个散列空间<br>均匀(uniformity)：关键码映射到散列表各位置的概率尽量接近，避免聚集(clustering)现象<br>除余法：hash(key)=key%M  M为素数时，数据对散列表覆盖最充分，分布最均匀<br>最大公因子gc=(S,M)=G 当且仅当G=1时，可以遍布M，所以M应取素数<br>缺陷：不动点：无论表长M取值，总有hash(0)==0；零阶均匀：[0,R),平均分配至M个桶，但相邻关键码的散列地址也必相邻<br>MAD(multiply-add-divide):取M为素数，a &gt; 0,b &gt; 0,a % M!= 0,hash(key)=(a * key + b) % M<br>更多散列函数：数字分析(selecting digits)抽取key中某几位，构成地址；平方取中(mid-square)取key^2的中间若干位构成地址<br>折叠法(folding):将key分割成等宽的若干段，取其总和作为地址 位异或法<br>(伪)随机数法:rand(x+1)=[a<em>rand(x)]%M;  hash(key)=rand(key)=[rand[0]</em>a^key]%M 可移植性差<br>多项式法:hash(s =x0x1…xn-1) = x0<em>a^(n-1)+…+xn-2</em>a^1+xn-1</p>
+<p>排解冲突：<br>多槽位(multiple slots)桶单元细分成若干槽位，存放冲突的词条。但预留过多空间会浪费，极端情况可能会不够<br>独立链(linked-list/separate chaining)每个桶存放一个指针，冲突的词条组织成列表<br>无需为每个桶预留多个槽位，任一多次的冲突都可解决，删除操作实现简单、统一<br>但是指针需要额外空间，节点需要动态申请；空间未必连续分布，系统缓存几乎失效<br>开放定址(open addressing)为每个桶都事先约定若干备用桶，他们构成一个查找链(probing sequence/chain)<br>查找时沿查找链，逐个转向下一桶单元，直到命中-&gt;成功,或者抵达一个空桶-&gt;失败<br>线性试探(linear probing)一旦冲突，则试探后一紧邻桶单元:[hash(key)+1]%M.[hash(key)+2]%M….直到命中成功或者抵达空桶失败<br>无需附加的(指针、链表或溢出区等)空间；查找链具有局部性，可充分利用系统缓存，有效减少I/O<br>但是操作时间&gt;O(1),冲突增多，以往的冲突会导致后续的冲突<br>懒惰删除(lazy removal)直接删除词条将导致查找链被切断，后续词条丢失，可以在删除的时候不删除而是加一标记，查找时越过，插入时加入<br>平方试探(quadratic probing)以平方数为距离，确定下一试探桶单元 [hash(key)+n^2]%M<br>数据聚集现象有所缓解，查找链上各桶间距线性递增，但涉及外存时I/O激增，且空桶一不定能被发现<br>M若为合数，n^2%M可能的取值必然少于[m/2]种，M若为合数，恰好[M/2]种，取遍前[M/2]个桶<br>所以若M是素数，且λ&lt;50%就一定能找到<br>双向平方试探：[hash(key) + n ^ 2] % M, [hash(key) - n ^ 2] % M<br>表长取素数M=4*k+3，必然可以保证查找链的前M项均互异<br>双平方定理(two-square theorem of fermat):任一素数p可表示为一对整数的平方和，当且仅当p%4=1</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/26/DS%E9%82%93%E4%BF%8A%E8%BE%8909/" data-id="ckd34imj10008p8ve8hsk9kp7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%82%93%E4%BF%8A%E8%BE%89/" rel="tag">数据结构 邓俊辉</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/26/DS%E9%82%93%E4%BF%8A%E8%BE%8908/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">DS邓俊辉08</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp-notes/" rel="tag">cpp notes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/problem-library/" rel="tag">problem library</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reading-notes-DS/" rel="tag">reading notes DS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%82%93%E4%BF%8A%E8%BE%89/" rel="tag">数据结构 邓俊辉</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/cpp-notes/" style="font-size: 20px;">cpp notes</a> <a href="/tags/problem-library/" style="font-size: 13.33px;">problem library</a> <a href="/tags/reading-notes-DS/" style="font-size: 10px;">reading notes DS</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%82%93%E4%BF%8A%E8%BE%89/" style="font-size: 16.67px;">数据结构 邓俊辉</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/26/DS%E9%82%93%E4%BF%8A%E8%BE%8909/">DS邓俊辉09</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/26/DS%E9%82%93%E4%BF%8A%E8%BE%8908/">DS邓俊辉08</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/26/DS%E9%82%93%E4%BF%8A%E8%BE%8907/">DS邓俊辉07</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/23/DS%E9%82%93%E4%BF%8A%E8%BE%89-06/">DS邓俊辉 06</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/23/DS%E9%82%93%E4%BF%8A%E8%BE%89-05/">DS邓俊辉 05</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>DS邓俊辉07 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="二叉搜索树数据项之间依照各自的关键码彼此区分call-by-key，支持大小比较与相等比对，数据集合中的数据项统一地表示和实现为词条(entry)形式词条： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DS邓俊辉07">
+<meta property="og:url" content="http://yoursite.com/2020/07/26/DS%E9%82%93%E4%BF%8A%E8%BE%8907/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="二叉搜索树数据项之间依照各自的关键码彼此区分call-by-key，支持大小比较与相等比对，数据集合中的数据项统一地表示和实现为词条(entry)形式词条： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-26T13:28:19.000Z">
+<meta property="article:modified_time" content="2020-07-26T13:30:26.485Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="数据结构 邓俊辉">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-DS邓俊辉07" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/26/DS%E9%82%93%E4%BF%8A%E8%BE%8907/" class="article-date">
+  <time datetime="2020-07-26T13:28:19.000Z" itemprop="datePublished">2020-07-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      DS邓俊辉07
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="二叉搜索树"><a href="#二叉搜索树" class="headerlink" title="二叉搜索树"></a>二叉搜索树</h1><p>数据项之间依照各自的关键码彼此区分call-by-key，支持大小比较与相等比对，数据集合中的数据项统一地表示和实现为词条(entry)形式<br>词条：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;<span class="class"><span class="keyword">struct</span> <span class="title">Entry</span> &#123;</span> <span class="comment">//词条模板类</span></span><br><span class="line">	K key; V value; <span class="comment">//关键码、数值</span></span><br><span class="line">	Entry(K k = K(), V v = V()) :key(k), value(v) &#123;&#125;;  <span class="comment">//默认构造函数</span></span><br><span class="line">	Entry(Entry&lt;K, V&gt;<span class="keyword">const</span>&amp; e) :key(e.key), value(e.value) &#123;&#125;; <span class="comment">//克隆</span></span><br><span class="line">	<span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(Entry&lt;K, V&gt;<span class="keyword">const</span>&amp; e) &#123; <span class="keyword">return</span> key &lt; e.key; &#125; <span class="comment">//小于</span></span><br><span class="line">	<span class="keyword">bool</span> <span class="keyword">operator</span>&gt;(Entry&lt;K, V&gt;<span class="keyword">const</span>&amp; e) &#123; <span class="keyword">return</span> key &gt; e.key; &#125; <span class="comment">//大于</span></span><br><span class="line">	<span class="keyword">bool</span> <span class="keyword">operator</span>==(Entry&lt;K, V&gt;<span class="keyword">const</span>&amp; e) &#123; <span class="keyword">return</span> key == e.key; &#125; <span class="comment">//等于</span></span><br><span class="line">	<span class="keyword">bool</span> <span class="keyword">operator</span>!=(Entry&lt;K, V&gt;<span class="keyword">const</span>&amp; e) &#123; <span class="keyword">return</span> key != e.key; &#125; <span class="comment">//不等于</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Binary Sarch Tree(BST)：节点~词条~关键码</span><br><span class="line">顺序性：任一节点均不小于/不大于其左/右后代</span><br><span class="line">单调性：BST的中序遍历序列，必然单调非降</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;<span class="class"><span class="keyword">class</span> <span class="title">BST</span> :</span><span class="keyword">public</span> BinTree&lt;T&gt; &#123; <span class="comment">//由BinTree派生</span></span><br><span class="line"><span class="keyword">public</span>: <span class="comment">//以virtual修饰，以便派生类重写</span></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="title">BinNodePosi</span><span class="params">(T)</span>&amp; <span class="title">search</span><span class="params">(<span class="keyword">const</span> T&amp;)</span></span>; <span class="comment">//查找</span></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="title">BinNodePosi</span><span class="params">(T)</span> <span class="title">insert</span><span class="params">(<span class="keyword">const</span> T&amp;)</span></span>; <span class="comment">//插入</span></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">bool</span> <span class="title">remove</span><span class="params">(<span class="keyword">const</span> T&amp;)</span></span>; <span class="comment">//删除</span></span><br><span class="line">	<span class="keyword">protected</span>;</span><br><span class="line">	BinNodePosi(T) _hot; <span class="comment">//命中节点的父亲</span></span><br><span class="line">	BinNodePosi(T) connect34( <span class="comment">//3+4重构</span></span><br><span class="line">		BinNosePosi(T), BinNosePosi(T), BinNosePosi(T),</span><br><span class="line">		BinNosePosi(T), BinNosePosi(T), BinNosePosi(T), BinNosePosi(T)</span><br><span class="line">	);</span><br><span class="line">	BinNodePosi(T) rotateAt(BinNodePosi(T)); <span class="comment">//旋转调整</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">BST查找：</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; BinNodePosi(T) &amp; BST&lt;T&gt;::search(<span class="keyword">const</span> T &amp; E)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">return</span> searchIn(_root, e, _hot = <span class="literal">NULL</span>;) <span class="comment">//从根节点查找</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">static</span> BinNodePosi(T)&amp; searchIn( <span class="comment">//递归，可改为迭代版</span></span><br><span class="line">	BinNodePosi(T)&amp; v, <span class="comment">//当前（子）树根</span></span><br><span class="line">	<span class="keyword">const</span> T&amp; e, <span class="comment">//目标关键码</span></span><br><span class="line">	BinNodePosi(T&amp; hot) <span class="comment">//记忆热点</span></span><br><span class="line">)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span> (!v || (e == v-&gt;data))<span class="keyword">return</span> v; <span class="comment">//足以确定失败、成功，或者</span></span><br><span class="line">	hot == v; <span class="comment">//先记下当前（非空）节点，然后再。。。</span></span><br><span class="line">	<span class="keyword">return</span> searchIn(((e &lt; v-&gt;data) ? v-&gt;lChild : v-&gt;rChild), e, hot);</span><br><span class="line">&#125; <span class="comment">//运行时间正比于返回节点v的深度，不超过树高 O(h)</span></span><br><span class="line">返回的引用值：成功时，指向一个关键码为e且真实存在的节点，_hot指向该节点的父亲</span><br><span class="line">			  失败时，指向最后一次试图转向的空节点<span class="literal">NULL</span>，_hot指向最后访问的真实存在的节点</span><br><span class="line"></span><br><span class="line">插入：</span><br><span class="line">先借助search(e)确定插入位置及方向，再将新节点作为叶子插入</span><br><span class="line">若e尚不存在，则:_hot为新节点的父亲，v=search(e)为_hot对新孩子的引用</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; BinNodePosi(T) BST&lt;T&gt;::insert(<span class="keyword">const</span> T &amp; e) &#123;</span><br><span class="line">	BinNodePosi(T)&amp; x = search(e); <span class="comment">//查找目标（留意_hot的设置）</span></span><br><span class="line">	<span class="keyword">if</span> (!x) &#123; <span class="comment">//既禁止雷同元素，故仅在查找失败时才实施插入操作</span></span><br><span class="line">		x = <span class="keyword">new</span> BinNode&lt;T&gt;(e, _hot); <span class="comment">//在x处创建新节点，以_hot为父亲</span></span><br><span class="line">		_size++; updateHeightAbove(x); <span class="comment">//更新全树规模，更新x及其历代祖先的高度</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> x; <span class="comment">//无论e是否存在于原树中，至此总有x-&gt;data==e</span></span><br><span class="line">&#125;O(h)</span><br><span class="line"></span><br><span class="line">删除：</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">bool</span> BST&lt;T&gt;::<span class="built_in">remove</span>(<span class="keyword">const</span> T&amp; e) &#123;</span><br><span class="line">	BinNodePosi(T)&amp; x = search(e); <span class="comment">//定位目标节点</span></span><br><span class="line">	<span class="keyword">if</span> (!x)<span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">//确认目标存在（此时_hot为x的父亲）</span></span><br><span class="line">	removeAt(x, _hot); <span class="comment">//分为两大类情况试试删除，更新全树规模</span></span><br><span class="line">	_size--; updateHeightAbove(_hot);</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;<span class="function"><span class="keyword">static</span> <span class="title">BinNodePosi</span><span class="params">(T)</span></span></span><br><span class="line"><span class="function"><span class="title">removeAt</span><span class="params">(BinNodePosi(T)&amp; x, BinNodePosi(T)&amp; hot)</span> </span>&#123;</span><br><span class="line">	BinNodePosi(T) w = x; <span class="comment">//实际被摘除的节点，初值同x</span></span><br><span class="line">	BinNodePosi(T) succ = <span class="literal">NULL</span>; <span class="comment">//实际被删除节点的接替者</span></span><br><span class="line">	<span class="keyword">if</span> (!HasLChild(*x))succ = x = x-&gt;rChild; <span class="comment">//左子树为空</span></span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (!HasRChild(*x))succ = x = x-&gt;lChild; <span class="comment">//右子树为空</span></span><br><span class="line">	<span class="keyword">else</span> &#123; <span class="comment">/*左右子树并存*/</span></span><br><span class="line">		w = w-&gt;succ(); swap(x-&gt;data, w-&gt;data); <span class="comment">//令*x与其后继*w互换数据</span></span><br><span class="line">		BinNodePosi(T) u = w-&gt;parent; <span class="comment">//原问题即转化为，摘除非二度的节点w</span></span><br><span class="line">		(u == x ? u-&gt;rChild : u-&gt;lChild) = succ = w-&gt;rChild;</span><br><span class="line">	&#125;</span><br><span class="line">	hot = w-&gt;parent; <span class="comment">//记录实际被删除节点的父亲</span></span><br><span class="line">	<span class="keyword">if</span> (succ)succ-&gt;parent = hot; <span class="comment">//将被删除节点的接替者与hot相联</span></span><br><span class="line">	<span class="built_in">release</span>(w-&gt;data); <span class="built_in">release</span>(w); <span class="comment">//释放被摘除节点</span></span><br><span class="line">	<span class="keyword">return</span> succ; <span class="comment">//返回接替者</span></span><br><span class="line">&#125;O(h)</span><br><span class="line">平均高度：catalan(n) O(n^<span class="number">0.5</span>)</span><br><span class="line">由n个节点组成的二叉树，高度不低于log2(n)</span><br><span class="line">等价BST:上下可变，左右不能乱</span><br><span class="line"></span><br><span class="line">平衡二叉搜索树（AVL树）：</span><br><span class="line">平衡因子：balFac(v)=<span class="built_in">height</span>(lc(v))-<span class="built_in">height</span>(rc(v))</span><br><span class="line">AVL树满足：任一v,|balFac(v)|&lt;=<span class="number">1</span></span><br><span class="line">高度为h的AVL树，至少包含S(h)=fib(h+<span class="number">3</span>)<span class="number">-1</span>个节点 S(h)=<span class="number">1</span>+S(h<span class="number">-1</span>)+S(h<span class="number">-2</span>)</span><br><span class="line">接口：</span><br><span class="line">#define Balanced(x)  \ (stature((x).lChild)==stature((x).rChild))  <span class="comment">//理想平衡</span></span><br><span class="line">#define BalFac(x) \ (stature((x).lChild)-stature((x).rChild)) <span class="comment">//平衡因子</span></span><br><span class="line">#define AvlBalanced(x) \ ((<span class="number">-2</span>&lt;BalFac(x))&amp;&amp;(BalFac(x)&lt;<span class="number">2</span>)) <span class="comment">//AVL平衡条件</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;class AVL :<span class="keyword">public</span> BST&lt;T&gt; &#123; <span class="comment">//由BST派生</span></span><br><span class="line"><span class="keyword">public</span>: <span class="comment">//BST::search()等接口，可直接沿用</span></span><br><span class="line">	BinNodePosi(T) insert(<span class="keyword">const</span> T&amp;); <span class="comment">//插入重写</span></span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">remove</span><span class="params">(<span class="keyword">const</span> T&amp;)</span></span>; <span class="comment">//删除重写</span></span><br><span class="line">&#125;;</span><br><span class="line">插入可能引起多个祖先失衡，删除最多引起一个祖先失衡</span><br><span class="line"></span><br><span class="line">插入：</span><br><span class="line">单旋：同时可有多个失衡点，最低者g不低于x祖父，根节点朝向一致，zagzag</span><br><span class="line">	  复衡后子树高度复原，更高祖先也必平衡</span><br><span class="line">双旋：zigzag，之字形</span><br><span class="line">	  复衡后子树高度复原，更高祖先也必平衡</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;BinNodePosi(T) AVL&lt;T&gt;::insert(<span class="keyword">const</span> T&amp; e) &#123;</span><br><span class="line">	BinNodePosi(T)&amp; x = search(e); <span class="keyword">if</span> (x) <span class="keyword">return</span> x; <span class="comment">//若目标尚不存在</span></span><br><span class="line">	x = <span class="keyword">new</span> BinNode&lt;T&gt;(e, _hot); _size++; BinNodePosi(T) xx = x; <span class="comment">//则创建x</span></span><br><span class="line">	<span class="comment">//以下，从x的父亲触发逐层向上，一次检查各代祖先g</span></span><br><span class="line">	<span class="keyword">for</span> (BinNodePosi(T)g = x-&gt;parent; g; g = g-&gt;parent)</span><br><span class="line">		<span class="keyword">if</span> (!AvlBalanced(*g)) &#123; <span class="comment">//一旦发现g失衡，则通过调整恢复平衡</span></span><br><span class="line">			FromPatentTo(*g) = rotateAt(tallerChild(tallerChild(g)));</span><br><span class="line">			<span class="keyword">break</span>; <span class="comment">//g复衡后，局部子树高度必然复原；其祖先亦必如此，故调整结束</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="comment">//否则（在依然平衡的祖先处），只需简单地 </span></span><br><span class="line">			updateHeight(g); <span class="comment">//更新其高度</span></span><br><span class="line">	<span class="keyword">return</span> xx; <span class="comment">//返回新节点：至多只需一次调整</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">删除：</span><br><span class="line">单旋：同时至多一个失衡节点g，首个可能就是x的父亲_hot</span><br><span class="line">	  g经单旋调整后复衡，子树高度未必复原；更高祖先仍可能失衡</span><br><span class="line">	  因有失衡传播现象，可能需做O(logn)次调整</span><br><span class="line">双旋：相同</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;<span class="keyword">bool</span> AVL&lt;T&gt;::<span class="built_in">remove</span>(<span class="keyword">const</span> T&amp; e) &#123;</span><br><span class="line">	BinNodePosi(T)&amp; x = search(e); <span class="keyword">if</span> (!x)<span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">//若目标的确存在</span></span><br><span class="line">	removeAt(x, _hot); _size--; <span class="comment">//则在按BST规则删除之后，_hot及祖先均有可能失衡</span></span><br><span class="line">	<span class="comment">//一下，从_hot出发逐层向上，一次检查各代祖先g</span></span><br><span class="line">	<span class="keyword">for</span> (BinNodePosi(T)g = _hot; g; g = g-&gt;parent) &#123;</span><br><span class="line">		<span class="keyword">if</span> (!AvlBalanced(*g)) <span class="comment">//一旦发现g失衡，则通过调整恢复平衡</span></span><br><span class="line">			g = FormParentTo(*g) = retateAt(tallerChild(tallerChild(g)));</span><br><span class="line">		updateHeight(g); <span class="comment">//并更新其高度</span></span><br><span class="line">	&#125; <span class="comment">//可能需做过omega(logn)次调整；无论是否做过调整，全树高度均可能下降</span></span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>+<span class="number">4</span>重构：</span><br><span class="line">设g(x)为最低的失衡节点，考察祖孙三代：g~p~v</span><br><span class="line">按中序遍历次序，将其重命名为：a&lt;b&lt;c</span><br><span class="line">它们总共有互不相交的四颗（可能为空的）子树</span><br><span class="line">按中序遍历次序，将其重命名为：T0&lt;T1&lt;T2&lt;T3</span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="title">BinNodePosi</span><span class="params">(T)</span> BST&lt;T&gt;::<span class="title">connet34</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">	BinNodePosi(T) a, BinNodePosi(T) b, BinNodePosi(T) c,</span></span></span><br><span class="line"><span class="function"><span class="params">	BinNodePosi(T) T0, BinNodePosi(T) T1, BinNodePosi(T) T2, BinNodePosi(T) T3, )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	a-&gt;lChild = T0; <span class="keyword">if</span> (T0)T0-&gt;parent = a;</span><br><span class="line">	a-&gt;rChild = T1; <span class="keyword">if</span> (T1)T1-&gt;parent = a; updateHeight(a);</span><br><span class="line">	c-&gt;lChild = T2; <span class="keyword">if</span> (T2)T2-&gt;parent = c; </span><br><span class="line">	c-&gt;rChild = T3; <span class="keyword">if</span> (T3)T3-&gt;parent = c; updateHeight(c);</span><br><span class="line">	b-&gt;lChild = a; a-&gt;parent = b;</span><br><span class="line">	b-&gt;rChild = c; c-&gt;parent = b; updateHeight(b);</span><br><span class="line">	<span class="keyword">return</span> b; <span class="comment">//该子树的新根节点</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="title">BinNodePosi</span><span class="params">(T)</span> BST&lt;T&gt;::<span class="title">rotateAt</span><span class="params">(BinNodePosi(T)v)</span> </span>&#123;</span><br><span class="line">	BinNodePosi(T) p = v-&gt;parent, g = p-&gt;parent; <span class="comment">//父亲，祖父</span></span><br><span class="line">	<span class="keyword">if</span>(IsLChild(*p)) <span class="comment">//zig</span></span><br><span class="line">		<span class="keyword">if</span> (IsRChild(*v)) &#123; <span class="comment">//zig-zag</span></span><br><span class="line">			p-&gt;parent = g-&gt;parent; <span class="comment">//向上联接</span></span><br><span class="line">			<span class="keyword">return</span> connect34(v, p, g, v-&gt;lChild, v-&gt;rChild, p-&gt;rChild, g-&gt;rChild);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123; <span class="comment">//zag-zig</span></span><br><span class="line">			v-&gt;parent = g-&gt;parent;</span><br><span class="line">			<span class="keyword">return</span> connect34(p, v, g, p-&gt;lChild, v-&gt;lChild, v-&gt;rChild, g-&gt;rChild);</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;<span class="comment">/*...zagzig&amp;zigzag*/</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line">AVL树：</span><br><span class="line">无论查找、插入或删除，最坏情况下复杂度均为O(logn),O(n)的储存空间</span><br><span class="line">借助高度或平衡因子，为此需要改造元素结构，或额外封装</span><br><span class="line">实测复杂度于理论值尚有差距，插入/删除后的旋转成本不菲，删除操作后最多需旋转omega(logn)次(平均<span class="number">0.21</span>次)</span><br><span class="line">若需频繁进行插入/删除操作，得不偿失</span><br><span class="line">单次动态调整后，全树拖布结构的变化量可能高达omega(logn)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/26/DS%E9%82%93%E4%BF%8A%E8%BE%8907/" data-id="ckd34imiz0004p8veg02dga3j" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%82%93%E4%BF%8A%E8%BE%89/" rel="tag">数据结构 邓俊辉</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/26/DS%E9%82%93%E4%BF%8A%E8%BE%8908/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          DS邓俊辉08
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/23/DS%E9%82%93%E4%BF%8A%E8%BE%89-06/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">DS邓俊辉 06</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp-notes/" rel="tag">cpp notes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/problem-library/" rel="tag">problem library</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reading-notes-DS/" rel="tag">reading notes DS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%82%93%E4%BF%8A%E8%BE%89/" rel="tag">数据结构 邓俊辉</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/cpp-notes/" style="font-size: 20px;">cpp notes</a> <a href="/tags/problem-library/" style="font-size: 13.33px;">problem library</a> <a href="/tags/reading-notes-DS/" style="font-size: 10px;">reading notes DS</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%82%93%E4%BF%8A%E8%BE%89/" style="font-size: 16.67px;">数据结构 邓俊辉</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/26/DS%E9%82%93%E4%BF%8A%E8%BE%8909/">DS邓俊辉09</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/26/DS%E9%82%93%E4%BF%8A%E8%BE%8908/">DS邓俊辉08</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/26/DS%E9%82%93%E4%BF%8A%E8%BE%8907/">DS邓俊辉07</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/23/DS%E9%82%93%E4%BF%8A%E8%BE%89-06/">DS邓俊辉 06</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/23/DS%E9%82%93%E4%BF%8A%E8%BE%89-05/">DS邓俊辉 05</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
