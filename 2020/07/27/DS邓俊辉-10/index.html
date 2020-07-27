@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>DS邓俊辉 10 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="优先级队列call-by-priority 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DS邓俊辉 10">
+<meta property="og:url" content="http://yoursite.com/2020/07/27/DS%E9%82%93%E4%BF%8A%E8%BE%89-10/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="优先级队列call-by-priority 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-27T14:34:35.000Z">
+<meta property="article:modified_time" content="2020-07-27T16:12:37.951Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="数据结构 邓俊辉">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-DS邓俊辉-10" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/27/DS%E9%82%93%E4%BF%8A%E8%BE%89-10/" class="article-date">
+  <time datetime="2020-07-27T14:34:35.000Z" itemprop="datePublished">2020-07-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      DS邓俊辉 10
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="优先级队列"><a href="#优先级队列" class="headerlink" title="优先级队列"></a>优先级队列</h1><p>call-by-priority</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="class"><span class="keyword">struct</span> <span class="title">PQ</span> &#123;</span> <span class="comment">//priority queue</span></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(T)</span> </span>= <span class="number">0</span>; <span class="comment">//按照优先级次序插入词条</span></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> T <span class="title">getMax</span><span class="params">()</span> </span>= <span class="number">0</span>; <span class="comment">//取出优先级最高的词条</span></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> T <span class="title">delMax</span><span class="params">()</span> </span>= <span class="number">0</span>; <span class="comment">//删除优先级最高的词条</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">完全二叉堆</span><br><span class="line">逻辑上等同于完全二叉树，物理上直接借助向量实现</span><br><span class="line">逻辑节点与物理元素，依层次遍历次序彼此对应</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Parent(i) ((i-1&gt;&gt;1))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LChild(i) (1+((i)&lt;&lt;1)) <span class="comment">//奇数</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> RChild(i) ((1+(i))&lt;&lt;1) <span class="comment">//偶数</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="class"><span class="keyword">class</span> <span class="title">PQ_ComplHeap</span> :</span><span class="keyword">public</span> PQ&lt;T&gt;, <span class="keyword">public</span> Vector&lt;T&gt; &#123;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">	<span class="function">Rank <span class="title">percolateDown</span><span class="params">(Rank n, Rank i)</span></span>; <span class="comment">//下滤</span></span><br><span class="line">	<span class="function">Rank <span class="title">percolateUP</span><span class="params">(Rank i)</span></span>; <span class="comment">//上滤</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">heapify</span><span class="params">(Rank n)</span></span>; <span class="comment">//Floyd建堆算法</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	QP_ComplHeap(T* A,Rank n) <span class="comment">//批量构造</span></span><br><span class="line">	&#123;copuFrom(A, <span class="number">0</span>, n); heapify(n);	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(T)</span></span>; <span class="comment">//按照比较器确定的优先级次序，插入词条</span></span><br><span class="line">	<span class="function">T <span class="title">getMax</span><span class="params">()</span></span>&#123; <span class="keyword">return</span> _elem[<span class="number">0</span>]; &#125; <span class="comment">//读取优先级最高的词条</span></span><br><span class="line">	<span class="function">T <span class="title">delMax</span><span class="params">()</span></span>; <span class="comment">//删除优先级最高的词条</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">堆序性：</span><br><span class="line">数值上，只要<span class="number">0</span> &lt; i，必满足H[i] &lt;= H[Parent(i)]，故H[<span class="number">0</span>]是全局最大元素</span><br><span class="line"></span><br><span class="line">插入与上滤</span><br><span class="line">为插入词条e，只需将e作为末元素接入向量  结构性自然保持，堆序性未必破坏</span><br><span class="line">若破坏只需和父节点交换，可能交换多次</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">void</span> PQ_ComplHeap&lt;T&gt;::insert(T e) <span class="comment">//插入</span></span><br><span class="line">	&#123;Vector&lt;T&gt;::insert(e); pervolateUp(_size - <span class="number">1</span>);&#125;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="comment">//对第i个词条实施上滤，i&lt;_size</span></span><br><span class="line">Rank PQ_ComplHeap&lt;T&gt;::percolateUp(Rank i) &#123;</span><br><span class="line">	<span class="keyword">while</span> (PerantValid(i)) &#123; <span class="comment">//只要i有父亲（尚未抵达堆顶），则</span></span><br><span class="line">		Rank j = Parent(i); <span class="comment">//将之记作j</span></span><br><span class="line">		<span class="keyword">if</span> (It(_elem[i], _elem[j]))<span class="keyword">break</span>; <span class="comment">//一旦父子不在逆序，上滤旋即完成</span></span><br><span class="line">		swap(_elem[i], _elem[j]); i = j; <span class="comment">//否则，交换父子位置，并上升一层</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">删除与下滤</span><br><span class="line">删除向量首元素，代之以末元素e，结构性保持，若堆序性破坏，与e孩子中大者换位</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; T PQ_ComplHeap&lt;T&gt;::delMax() &#123; <span class="comment">//删除</span></span><br><span class="line">	T maxElem = _elem[<span class="number">0</span>]; _elem[<span class="number">0</span>] = _elem[--_size]; <span class="comment">//摘除堆顶，代之以末次条</span></span><br><span class="line">	percolateDown(_size, <span class="number">0</span>); <span class="comment">//对新堆顶实施下滤</span></span><br><span class="line">	<span class="keyword">return</span> maxElem; <span class="comment">//返回此前备份的最大词条</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="comment">//对前n个词条中的第i个实施下滤，i&lt;n</span></span><br><span class="line">Rank PQ_ComplHeap&lt;T&gt;::percolateDown(Rank n, Rank i) &#123;</span><br><span class="line">	Rank j; <span class="comment">//i及其(至多两个)孩子中，堪为父者</span></span><br><span class="line">	<span class="keyword">while</span> (i != (j = ProperParent(_elem, n, i))) <span class="comment">//只要i非j，则</span></span><br><span class="line">	&#123;</span><br><span class="line">		swap(_elem[i], _elem[j]); i = j; <span class="comment">//换位，并继续考察i</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> i; <span class="comment">//返回下滤抵达的位置（亦i亦j）</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">批量建堆</span><br><span class="line">自上而下的上滤</span><br><span class="line">PQ_ComplHeap(T* A, Rank n) &#123; copyFrom(A, <span class="number">0</span>, n); heapify(n); &#125;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">void</span> PQ_ComplHeap&lt;T&gt;::heapify(Rank n) &#123; <span class="comment">//蛮力</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) <span class="comment">//按照层次遍历次序逐一</span></span><br><span class="line">		percolateUp(i); <span class="comment">//经上滤插入各节点</span></span><br><span class="line">&#125;O(nlogn)</span><br><span class="line">自下而上的下滤</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">void</span> PQ_ComplHeap&lt;T&gt;::heapify(Rank n) &#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = LastInternal(n); i &gt;= <span class="number">0</span>; i--) <span class="comment">//自下而上，一次</span></span><br><span class="line">		percolateDown(n, i); <span class="comment">//下滤各内部节点</span></span><br><span class="line">&#125; <span class="comment">//可以理解为子堆的逐层合并 O(n)</span></span><br><span class="line"></span><br><span class="line">堆排序</span><br><span class="line">在选择排序中，待排序部分u替换为H；</span><br><span class="line">初始化：heapify(),O(n)建堆</span><br><span class="line">迭代：delMax(),O(logn)取出堆顶并调整复原</span><br><span class="line">不变性：H&lt;=S</span><br><span class="line">有：m=H[<span class="number">0</span>],x=S[<span class="number">-1</span>]，所以swap(m,x)=H.insert(x)+S.insert(m)</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="comment">//对向量区间[lo,hi)做就地堆排序</span></span><br><span class="line"><span class="keyword">void</span> Vector&lt;T&gt;::heapSort(Rank lo, Rank hi) &#123;</span><br><span class="line">	PQ_ComplHeap&lt;T&gt; H(_elem + lo, hi - lo); <span class="comment">//待排序区间建堆，O(n)</span></span><br><span class="line">	<span class="keyword">while</span> (!H.empty()) <span class="comment">//反复地摘除最大元并归入已排序的后缀，直至堆空</span></span><br><span class="line">		_elem[--hi] = H.delMax(); <span class="comment">//等效于堆顶与末元素对换后下滤</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">堆合并</span><br><span class="line">H=merge(A,B):将堆A、B合二为一 <span class="comment">//设|A|=n&gt;=m=|B|</span></span><br><span class="line">方法一：A.insert(b.delMax()) O(m*<span class="built_in">log</span>(m+n))</span><br><span class="line">方法二：<span class="keyword">union</span>(A,B).heapify(m+n)  O(m+n)</span><br><span class="line"></span><br><span class="line">左式堆</span><br><span class="line">新条件：结点分布偏向于左侧，合并操作只涉及右侧，牺牲结构性，保留堆序性</span><br><span class="line">空节点路径长度：npl(<span class="literal">NULL</span>)=<span class="number">0</span>,npl(x)=<span class="number">1</span>+<span class="built_in">min</span>(npl(lc(x),npl(rc(x))</span><br><span class="line">npl(x)=x到外部结点的最近距离=以x为根的最大满子树的高度</span><br><span class="line">左倾：对任何内节点x，都有npl(lc(x))&gt;=npl(rc(x)),推论，对任何内节点x都有npl(x)=npl(rc(x))+<span class="number">1</span></span><br><span class="line">右侧链rChain(x):从节点x出发，一直沿着右分支前进</span><br><span class="line">rChain(root)的终点，必为全堆中最浅的外部节点  npl(r)==|rChain(r)|=d 存在一颗以r为根、高度为d的满子树</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;  <span class="comment">//基于二叉树，以左式堆形式实现的优先级队列</span></span><br><span class="line">class PQ_ComplHeap :<span class="keyword">public</span> PQ&lt;T&gt;, <span class="keyword">public</span> BinTree&lt;T&gt; &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">void</span> insert(T); <span class="comment">//（按比较器确定的优先级次序）插入元素</span></span><br><span class="line">	T getMax() &#123; <span class="keyword">return</span> _root-&gt;data; &#125; <span class="comment">//取出优先级最高的元素</span></span><br><span class="line">	T delMax(); <span class="comment">//删除优先级最高的元素</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">static</span> BinNodePosi(T) merge(BinNodePosi(T) a, BinNodePosi(T) b) &#123;</span><br><span class="line">	<span class="keyword">if</span> (!a)<span class="keyword">return</span> b; <span class="comment">//递归基</span></span><br><span class="line">	<span class="keyword">if</span> (!b)<span class="keyword">return</span> a; <span class="comment">//递归基</span></span><br><span class="line">	<span class="keyword">if</span> (lt(a-&gt;data, b-&gt;data))swap(b, a); <span class="comment">//一般情况：首先确保b不大</span></span><br><span class="line">	a-&gt;rc = merge(a-&gt;rc, b); <span class="comment">//将a的右子堆与b合并</span></span><br><span class="line">	a-&gt;rc-&gt;parent = a; <span class="comment">//并更新父子关系</span></span><br><span class="line">	<span class="keyword">if</span> (!a-&gt;lc || a-&gt;lc-&gt;npl &lt; a-&gt;rc-&gt;npl) <span class="comment">//若有必要</span></span><br><span class="line">		swap(a-&gt;lc, a-&gt;rc); <span class="comment">//交换a的左右子堆，以确保右子堆的npl不大</span></span><br><span class="line">	a-&gt;npl = a-&gt;rc ? a-&gt;rc-&gt;npl + <span class="number">1</span> : <span class="number">1</span>; <span class="comment">//更新a的npl</span></span><br><span class="line">	<span class="keyword">return</span> a;</span><br><span class="line">&#125;O(logn)</span><br><span class="line"></span><br><span class="line">插入即是合并、删除亦是合并</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">void</span> PQ_LeftHeap&lt;T&gt;::insert(T e) &#123; <span class="comment">//O(logn)</span></span><br><span class="line">	BinNodePosi(T)v = <span class="keyword">new</span> BinNode&lt;T&gt;(e); <span class="comment">//为e创建一个二叉树节点</span></span><br><span class="line">	_root = merge(_root, v); <span class="comment">//通过合并完成新节点的插入</span></span><br><span class="line">	_root-&gt;parent = <span class="literal">NULL</span>; <span class="comment">//既然此时堆非空，还需相应设置父子链接</span></span><br><span class="line">	_size++; <span class="comment">//更新规模</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="comment">//O(logn)</span></span><br><span class="line"><span class="keyword">void</span> PQ_LeftHeap&lt;T&gt;::delMax(T e) &#123;</span><br><span class="line">	BinNodePosi(T) lHeap = _root-&gt;lc; <span class="comment">//左子堆</span></span><br><span class="line">	BinNodePosi(T) rHeap = _root-&gt;rc; <span class="comment">//右子堆</span></span><br><span class="line">	T e = _root-&gt;data; <span class="comment">//备份堆顶处的最大元素</span></span><br><span class="line">	<span class="keyword">delete</span> _root; _size--; <span class="comment">//删除根节点</span></span><br><span class="line">	_root = merge(lHeap, rHeap); <span class="comment">//原左右子堆合并</span></span><br><span class="line">	<span class="keyword">if</span> (_root)_root-&gt;parent = <span class="literal">NULL</span>; <span class="comment">//更新父子链接</span></span><br><span class="line">	<span class="keyword">return</span> e; <span class="comment">//返回原根节点的数据项</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/27/DS%E9%82%93%E4%BF%8A%E8%BE%89-10/" data-id="ckd4pmy4v0000b4ve7fuf5qub" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%82%93%E4%BF%8A%E8%BE%89/" rel="tag">数据结构 邓俊辉</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/26/problem-library-%E6%A0%91/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">problem library 树</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp-notes/" rel="tag">cpp notes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/problem-library/" rel="tag">problem library</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reading-notes-DS/" rel="tag">reading notes DS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%82%93%E4%BF%8A%E8%BE%89/" rel="tag">数据结构 邓俊辉</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/cpp-notes/" style="font-size: 20px;">cpp notes</a> <a href="/tags/problem-library/" style="font-size: 13.33px;">problem library</a> <a href="/tags/reading-notes-DS/" style="font-size: 10px;">reading notes DS</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%82%93%E4%BF%8A%E8%BE%89/" style="font-size: 16.67px;">数据结构 邓俊辉</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/27/DS%E9%82%93%E4%BF%8A%E8%BE%89-10/">DS邓俊辉 10</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/26/problem-library-%E6%A0%91/">problem library 树</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/26/problem-library-%E6%95%B0%E7%BB%84/">problem library 数组</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/26/DS%E9%82%93%E4%BF%8A%E8%BE%8909/">DS邓俊辉09</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/26/DS%E9%82%93%E4%BF%8A%E8%BE%8908/">DS邓俊辉08</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
