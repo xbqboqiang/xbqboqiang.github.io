@@ -64,6 +64,60 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-problem library 01" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/13/problem%20library%2001/" class="article-date">
+  <time datetime="2020-07-13T14:51:44.247Z" itemprop="datePublished">2020-07-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/13/problem%20library%2001/">problem library 01</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="350-两个数的交集II"><a href="#350-两个数的交集II" class="headerlink" title="#350.两个数的交集II"></a>#350.两个数的交集II</h2><p>给定两个数组，编写一个函数来计算它们的交集。</p>
+<p>示例 1：</p>
+<p>输入：nums1 = [1, 2, 2, 1], nums2 = [2, 2]<br>输出：[2, 2]<br>示例 2:</p>
+<p>输入：nums1 = [4, 9, 5], nums2 = [9, 4, 9, 8, 4]<br>输出：[4, 9]</p>
+<p>来源：力扣（LeetCode）<br>链接：https ://leetcode-cn.com/problems/intersection-of-two-arrays-ii<br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">intersect</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">		<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;v;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums1.<span class="built_in">size</span>(); i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; nums2.<span class="built_in">size</span>(); j++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span> (nums2[j] == nums1[i])</span><br><span class="line">				&#123;</span><br><span class="line">					v.push_back(nums1[i]);</span><br><span class="line">					<span class="keyword">if</span> (nums1.<span class="built_in">size</span>() &gt; <span class="number">1</span> &amp;&amp; nums2.<span class="built_in">size</span>() &gt; <span class="number">1</span>) &#123;</span><br><span class="line">						nums2.erase(nums2.<span class="built_in">begin</span>() + j);</span><br><span class="line">						nums1.erase(nums1.<span class="built_in">begin</span>() + i);</span><br><span class="line">						j--;</span><br><span class="line">						i--;</span><br><span class="line">					&#125;</span><br><span class="line">					<span class="keyword">else</span> &#123;</span><br><span class="line">						<span class="keyword">return</span> v;</span><br><span class="line">					&#125;</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> v;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="1512-好数对的数目"><a href="#1512-好数对的数目" class="headerlink" title="#1512. 好数对的数目"></a>#1512. 好数对的数目</h2><p>给你一个整数数组 nums 。</p>
+<p>如果一组数字(i, j) 满足 nums[i] == nums[j] 且 i &lt; j ，就可以认为这是一组 好数对 。</p>
+<p>返回好数对的数目。</p>
+<p>示例 1：</p>
+<p>输入：nums = [1, 2, 3, 1, 1, 3]<br>输出：4<br>解释：有 4 组好数对，分别是(0, 3), (0, 4), (3, 4), (2, 5) ，下标从 0 开始<br>示例 2：</p>
+<p>输入：nums = [1, 1, 1, 1]<br>输出：6<br>解释：数组中的每组数字都是好数对<br>示例 3：</p>
+<p>输入：nums = [1, 2, 3]<br>输出：0</p>
+<p>来源：力扣（LeetCode）<br>链接：https ://leetcode-cn.com/problems/number-of-good-pairs<br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">numIdenticalPairs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; nums.<span class="built_in">size</span>(); j++) &#123;</span><br><span class="line">				<span class="keyword">if</span> (nums[i] == nums[j]) &#123;</span><br><span class="line">					a++;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> a;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/13/problem%20library%2001/" data-id="ckd64loe4001sakve2txub1zz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/problem-library/" rel="tag">problem library</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-cpp notes vector 02" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/07/13/cpp%20notes%20vector%2002/" class="article-date">
@@ -99,7 +153,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/13/cpp%20notes%20vector%2002/" data-id="ckd5gwopp0010iove1yvt2h0q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/13/cpp%20notes%20vector%2002/" data-id="ckd64lodw0011akveguluavvl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp-notes/" rel="tag">cpp notes</a></li></ul>
@@ -143,7 +197,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/13/cpp%20notes%20string%2002/" data-id="ckd5gwopo000vioveaxq94gd0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/13/cpp%20notes%20string%2002/" data-id="ckd64lodt000takve7kjv5a3z" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp-notes/" rel="tag">cpp notes</a></li></ul>
@@ -184,7 +238,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/12/cpp%20notes%20string%2001/" data-id="ckd5gwopn000tioveff4c66eo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/12/cpp%20notes%20string%2001/" data-id="ckd64lods000rakve7yd48gm3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp-notes/" rel="tag">cpp notes</a></li></ul>
@@ -227,7 +281,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/12/cpp%20notes%20vector%2001/" data-id="ckd5gwopp000yiove6nj70ci2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/12/cpp%20notes%20vector%2001/" data-id="ckd64lodu000xakveelmw7x9f" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp-notes/" rel="tag">cpp notes</a></li></ul>
@@ -278,7 +332,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/12/hello-world/" data-id="ckd5gwopu001iiove41ckcm5w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/12/hello-world/" data-id="ckd64loe4001uakvee9bagf0n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -338,11 +392,15 @@
       <ul>
         
           <li>
+            <a href="/2020/07/28/problem-library-%E6%A0%91-02/">problem library 树 02</a>
+          </li>
+        
+          <li>
             <a href="/2020/07/27/DS%E9%82%93%E4%BF%8A%E8%BE%89-10/">DS邓俊辉 10</a>
           </li>
         
           <li>
-            <a href="/2020/07/26/problem-library-%E6%A0%91/">problem library 树</a>
+            <a href="/2020/07/26/problem-library-%E6%A0%91/">problem library 树 01</a>
           </li>
         
           <li>
@@ -351,10 +409,6 @@
         
           <li>
             <a href="/2020/07/26/DS%E9%82%93%E4%BF%8A%E8%BE%8909/">DS邓俊辉09</a>
-          </li>
-        
-          <li>
-            <a href="/2020/07/26/DS%E9%82%93%E4%BF%8A%E8%BE%8908/">DS邓俊辉08</a>
           </li>
         
       </ul>
