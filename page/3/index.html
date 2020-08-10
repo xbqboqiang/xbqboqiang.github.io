@@ -64,6 +64,84 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-cpp-notes-拷贝和替换算法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/16/cpp-notes-%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%95/" class="article-date">
+  <time datetime="2020-07-16T11:29:18.000Z" itemprop="datePublished">2020-07-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/16/cpp-notes-%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%95/">cpp notes 拷贝和替换算法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintV</span><span class="params">(<span class="keyword">int</span> v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; v &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Greater4</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="keyword">int</span> v)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> v &gt; <span class="number">4</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">t01</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;v;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">		v.push_back(i);</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;v2;</span><br><span class="line">	v2.resize(v.<span class="built_in">size</span>());</span><br><span class="line"></span><br><span class="line">	copy(v.<span class="built_in">begin</span>(), v.<span class="built_in">end</span>(), v2.<span class="built_in">begin</span>());  <span class="comment">//copy</span></span><br><span class="line">	for_each(v2.<span class="built_in">begin</span>(), v2.<span class="built_in">end</span>(), PrintV);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;v3;</span><br><span class="line">	v3.push_back(<span class="number">2</span>);</span><br><span class="line">	v3.push_back(<span class="number">2</span>);</span><br><span class="line">	v3.push_back(<span class="number">3</span>);</span><br><span class="line">	v3.push_back(<span class="number">5</span>);</span><br><span class="line">	v3.push_back(<span class="number">5</span>);</span><br><span class="line">	v3.push_back(<span class="number">2</span>);</span><br><span class="line">	replace(v3.<span class="built_in">begin</span>(), v3.<span class="built_in">end</span>(), <span class="number">2</span>, <span class="number">200</span>);  <span class="comment">//replace</span></span><br><span class="line">	for_each(v3.<span class="built_in">begin</span>(), v3.<span class="built_in">end</span>(), PrintV);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	replace_if(v3.<span class="built_in">begin</span>(),v3.<span class="built_in">end</span>(),Greater4(),<span class="number">400</span>);</span><br><span class="line">	for_each(v3.<span class="built_in">begin</span>(), v3.<span class="built_in">end</span>(), PrintV);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	v3.swap(v);  <span class="comment">//swap 交换容器需要同种类型</span></span><br><span class="line">	for_each(v3.<span class="built_in">begin</span>(), v3.<span class="built_in">end</span>(), PrintV);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	for_each(v.<span class="built_in">begin</span>(), v.<span class="built_in">end</span>(), PrintV);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	t01();</span><br><span class="line">	system(<span class="string">"pause"</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/16/cpp-notes-%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%95/" data-id="ckdomu2pz001k1kveetscbx6h" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp-notes/" rel="tag">cpp notes</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-cpp-notes-排序算法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/16/cpp-notes-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="article-date">
+  <time datetime="2020-07-16T11:00:09.000Z" itemprop="datePublished">2020-07-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/16/cpp-notes-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">cpp notes 排序算法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintV</span><span class="params">(<span class="keyword">int</span> v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; v &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">t01</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;v;</span><br><span class="line">	v.push_back(<span class="number">2</span>);</span><br><span class="line">	v.push_back(<span class="number">3</span>);</span><br><span class="line">	v.push_back(<span class="number">5</span>);</span><br><span class="line">	v.push_back(<span class="number">5</span>);</span><br><span class="line">	v.push_back(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">	sort(v.<span class="built_in">begin</span>(), v. <span class="built_in">end</span>());  <span class="comment">//sort</span></span><br><span class="line">	for_each(v.<span class="built_in">begin</span>(), v.<span class="built_in">end</span>(), PrintV);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	sort(v.<span class="built_in">begin</span>(), v.<span class="built_in">end</span>(),greater&lt;<span class="keyword">int</span>&gt;());</span><br><span class="line">	for_each(v.<span class="built_in">begin</span>(), v.<span class="built_in">end</span>(), PrintV);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	random_shuffle(v.<span class="built_in">begin</span>(), v.<span class="built_in">end</span>());  <span class="comment">//random_shuffle</span></span><br><span class="line">	for_each(v.<span class="built_in">begin</span>(), v.<span class="built_in">end</span>(), PrintV);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;v2;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;v3;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		v2.push_back(i);</span><br><span class="line">		v3.push_back(i + <span class="number">5</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;v4;  <span class="comment">//merge 目标容器需要提前开辟区间，合并的两个容器需要有相同的顺序</span></span><br><span class="line">	v4.resize(v2.<span class="built_in">size</span>() + v3.<span class="built_in">size</span>());</span><br><span class="line">	merge(v2.<span class="built_in">begin</span>(), v2.<span class="built_in">end</span>(), v3.<span class="built_in">begin</span>(), v3.<span class="built_in">end</span>(), v4.<span class="built_in">begin</span>());</span><br><span class="line">	for_each(v4.<span class="built_in">begin</span>(), v4.<span class="built_in">end</span>(), PrintV);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	reverse(v2.<span class="built_in">begin</span>(), v2.<span class="built_in">end</span>());</span><br><span class="line">	for_each(v2.<span class="built_in">begin</span>(), v2.<span class="built_in">end</span>(), PrintV);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	srand((<span class="keyword">unsigned</span> <span class="keyword">int</span>)time(<span class="literal">NULL</span>));</span><br><span class="line">	t01();</span><br><span class="line">	system(<span class="string">"pause"</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/16/cpp-notes-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" data-id="ckdomu2q0001m1kve74l108bo" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp-notes/" rel="tag">cpp notes</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-cpp-notes-查找算法-02" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/07/15/cpp-notes-%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95-02/" class="article-date">
@@ -98,7 +176,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/15/cpp-notes-%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95-02/" data-id="ckdna08rw001p88vedzwfc6a4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/15/cpp-notes-%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95-02/" data-id="ckdomu2q1001q1kve60yi36t1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp-notes/" rel="tag">cpp notes</a></li></ul>
@@ -138,7 +216,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/15/cpp-notes-for-each-transform-find/" data-id="ckdna08rl001288vefwru4lmn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/15/cpp-notes-for-each-transform-find/" data-id="ckdomu2pw00191kve605t47l0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp-notes/" rel="tag">cpp notes</a></li></ul>
@@ -180,7 +258,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/15/cpp-notes-find-find-if/" data-id="ckdna08rm001488ve0vdhbrhl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/15/cpp-notes-find-find-if/" data-id="ckdomu2pv00171kveb8otfoaz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp-notes/" rel="tag">cpp notes</a></li></ul>
@@ -227,7 +305,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/15/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/" data-id="ckdna08sl002a88ve3gzm9vg3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/15/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/" data-id="ckdomu2qk002i1kvea0ryhoqj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp-notes/" rel="tag">cpp notes</a></li></ul>
@@ -272,7 +350,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/15/cpp-notes-map/" data-id="ckdna08ru001l88ve0k562uf0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/15/cpp-notes-map/" data-id="ckdomu2pz001i1kve0aew1q17" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp-notes/" rel="tag">cpp notes</a></li></ul>
@@ -313,7 +391,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/15/case-03-map/" data-id="ckdna08rg000m88ve73xv9qoz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/15/case-03-map/" data-id="ckdomu2pr000t1kve7fkx66ud" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp-notes/" rel="tag">cpp notes</a></li></ul>
@@ -369,7 +447,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/15/reading-notes-DS-01/" data-id="ckdna08sm002c88ve93ts75c4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/15/reading-notes-DS-01/" data-id="ckdomu2qi002g1kve61rk1wet" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reading-notes-DS/" rel="tag">reading notes DS</a></li></ul>
@@ -417,91 +495,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/15/cpp-notes-set/" data-id="ckdna08ru001j88ve5jv129i2" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp-notes/" rel="tag">cpp notes</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-case-02-list" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/07/14/case-02-list/" class="article-date">
-  <time datetime="2020-07-14T15:42:49.000Z" itemprop="datePublished">2020-07-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/14/case-02-list/">case 02 list</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>将Person自定义数据类型进行排序，Person中属性有姓名、年龄、身高<br>按照年龄升序，年龄相同按照身高降序</p>
-<h2 id="自写版本"><a href="#自写版本" class="headerlink" title="自写版本"></a>自写版本</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;list&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Person(<span class="built_in">string</span> name, <span class="keyword">int</span> age, <span class="keyword">int</span> <span class="built_in">height</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">this</span>-&gt;mName = name;</span><br><span class="line">		<span class="keyword">this</span>-&gt;mAge = age;</span><br><span class="line">		<span class="keyword">this</span>-&gt;mHeight = <span class="built_in">height</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">string</span> mName;</span><br><span class="line">	<span class="keyword">int</span> mAge;</span><br><span class="line">	<span class="keyword">int</span> mHeight;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">compare</span><span class="params">(Person p1, Person p2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (p1.mAge == p2.mAge)</span><br><span class="line">		<span class="keyword">return</span> p1.mHeight &gt; p2.mHeight;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="keyword">return</span> p1.mAge &lt; p2.mAge;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setPerson</span><span class="params">(<span class="built_in">list</span>&lt;Person&gt;&amp;l)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="function">Person <span class="title">p1</span><span class="params">(<span class="string">"tom"</span>,<span class="number">8</span>,<span class="number">120</span>)</span></span>;</span><br><span class="line">	<span class="function">Person <span class="title">p2</span><span class="params">(<span class="string">"jerry"</span>,<span class="number">3</span>,<span class="number">30</span>)</span></span>;</span><br><span class="line">	<span class="function">Person <span class="title">p3</span><span class="params">(<span class="string">"spike"</span>,<span class="number">8</span>,<span class="number">150</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">	l.push_back(p1);</span><br><span class="line">	l.push_back(p2);</span><br><span class="line">	l.push_back(p3);</span><br><span class="line"></span><br><span class="line">	l.sort(compare);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printPerson</span><span class="params">(<span class="keyword">const</span> <span class="built_in">list</span>&lt;Person&gt;&amp;l)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="built_in">list</span>&lt;Person&gt;::const_iterator it = l.<span class="built_in">begin</span>(); it != l.<span class="built_in">end</span>(); it++)</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"name is "</span> &lt;&lt; it-&gt;mName &lt;&lt; <span class="string">" age is "</span> &lt;&lt; it-&gt;mAge &lt;&lt; <span class="string">" height is "</span> &lt;&lt; it-&gt;mHeight &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">list</span>&lt;Person&gt;l;</span><br><span class="line">	setPerson(l);</span><br><span class="line">	printPerson(l);</span><br><span class="line">	system(<span class="string">"pause"</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/14/case-02-list/" data-id="ckdna08rf000j88ve6p4kconz" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp-notes/" rel="tag">cpp notes</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-cpp-notes-list" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/07/14/cpp-notes-list/" class="article-date">
-  <time datetime="2020-07-14T14:47:21.000Z" itemprop="datePublished">2020-07-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/14/cpp-notes-list/">cpp notes list</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;list&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintList</span><span class="params">(<span class="keyword">const</span> <span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;l)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;::const_iterator it = l.<span class="built_in">begin</span>(); it != l.<span class="built_in">end</span>(); it++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; *it &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">t01</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;l1;</span><br><span class="line">	l1.push_back(<span class="number">2</span>);</span><br><span class="line">	l1.push_back(<span class="number">3</span>);</span><br><span class="line">	l1.push_back(<span class="number">4</span>);</span><br><span class="line">	l1.push_back(<span class="number">5</span>);</span><br><span class="line">	PrintList(l1);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;l2(l1.<span class="built_in">begin</span>(), l1.<span class="built_in">end</span>());  <span class="comment">//区间方式构造</span></span><br><span class="line">	PrintList(l2);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;l3(l2);  <span class="comment">//拷贝构造</span></span><br><span class="line">	PrintList(l3);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;l4(<span class="number">10</span>,<span class="number">5</span>);  <span class="comment">//10个5</span></span><br><span class="line">	PrintList(l4);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="赋值和交换"><a href="#赋值和交换" class="headerlink" title="赋值和交换"></a>赋值和交换</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">t02</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;l1;</span><br><span class="line">	l1.push_back(<span class="number">2</span>);</span><br><span class="line">	l1.push_back(<span class="number">3</span>);</span><br><span class="line">	l1.push_back(<span class="number">4</span>);</span><br><span class="line">	l1.push_back(<span class="number">5</span>);</span><br><span class="line">	PrintList(l1);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;l2=l1;</span><br><span class="line">	l2 = l1;</span><br><span class="line">	PrintList(l2);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;l3;</span><br><span class="line">	l3.assign(l2.<span class="built_in">begin</span>(), l2.<span class="built_in">end</span>());</span><br><span class="line">	PrintList(l3);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;l4;</span><br><span class="line">	l4.assign(<span class="number">10</span>, <span class="number">5</span>);</span><br><span class="line">	PrintList(l4);</span><br><span class="line"></span><br><span class="line">	l4.swap(l3);</span><br><span class="line">	PrintList(l4);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="大小操作"><a href="#大小操作" class="headerlink" title="大小操作"></a>大小操作</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">t03</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;l1;</span><br><span class="line">	l1.push_back(<span class="number">2</span>);</span><br><span class="line">	l1.push_back(<span class="number">3</span>);</span><br><span class="line">	l1.push_back(<span class="number">4</span>);</span><br><span class="line">	l1.push_back(<span class="number">5</span>);</span><br><span class="line">	PrintList(l1);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (l1.empty())</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"it is empty"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"not empty"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"the size is "</span> &lt;&lt; l1.<span class="built_in">size</span>() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	l1.resize(<span class="number">7</span>, <span class="number">6</span>);</span><br><span class="line">	PrintList(l1);</span><br><span class="line">	l1.resize(<span class="number">10</span>);</span><br><span class="line">	PrintList(l1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="插入和删除"><a href="#插入和删除" class="headerlink" title="插入和删除"></a>插入和删除</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">t04</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;l1;</span><br><span class="line">	l1.push_back(<span class="number">2</span>);</span><br><span class="line">	l1.push_back(<span class="number">3</span>);</span><br><span class="line">	l1.push_front(<span class="number">4</span>);</span><br><span class="line">	l1.push_front(<span class="number">5</span>);	</span><br><span class="line">	PrintList(l1);</span><br><span class="line"></span><br><span class="line">	l1.pop_back();</span><br><span class="line">	l1.pop_front();</span><br><span class="line">	l1.insert(++l1.<span class="built_in">begin</span>(), <span class="number">20</span>);</span><br><span class="line">	l1.erase(++l1.<span class="built_in">begin</span>());</span><br><span class="line">	l1.push_back(<span class="number">2</span>);</span><br><span class="line">	l1.push_back(<span class="number">2</span>);</span><br><span class="line">	l1.<span class="built_in">remove</span>(<span class="number">2</span>);  <span class="comment">//移除所有匹配的数据</span></span><br><span class="line">	l1.<span class="built_in">clear</span>();</span><br><span class="line">&#125;</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
-<h2 id="数据存取"><a href="#数据存取" class="headerlink" title="数据存取"></a>数据存取</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">t05</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;l1;</span><br><span class="line">	l1.push_back(<span class="number">2</span>);</span><br><span class="line">	l1.push_back(<span class="number">3</span>);</span><br><span class="line">	l1.push_front(<span class="number">4</span>);</span><br><span class="line">	l1.push_front(<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; l1.front() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; l1.back() &lt;&lt; <span class="built_in">endl</span>;  </span><br><span class="line">	<span class="comment">//不可以用 []和at的方式访问list容器中的元素</span></span><br><span class="line">	<span class="comment">//list本质是链表，不是用连续线性空间存储数据，迭代器不支持随机访问</span></span><br><span class="line">	<span class="comment">//支持 ++/-- ，双向</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="反转和排序"><a href="#反转和排序" class="headerlink" title="反转和排序"></a>反转和排序</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Compare</span><span class="params">(<span class="keyword">int</span> v1, <span class="keyword">int</span> v2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//降序 让第一个数大于第二个数</span></span><br><span class="line">	<span class="keyword">return</span> v1 &gt; v2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">t06</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;l1;</span><br><span class="line">	l1.push_back(<span class="number">2</span>);</span><br><span class="line">	l1.push_back(<span class="number">3</span>);</span><br><span class="line">	l1.push_front(<span class="number">4</span>);</span><br><span class="line">	l1.push_front(<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">	l1.reverse();</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//sort(l1.begin(),l1.end())</span></span><br><span class="line">	<span class="comment">//所有不支持随机访问迭代器的容器不可以用标准算法</span></span><br><span class="line">	<span class="comment">//不支持的内部会提供一些对应算法</span></span><br><span class="line">	l1.sort();  <span class="comment">//默认升序</span></span><br><span class="line">	l1.sort(Compare);  <span class="comment">//降序</span></span><br><span class="line">	PrintList(l1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	t06();</span><br><span class="line">	system(<span class="string">"pause"</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/14/cpp-notes-list/" data-id="ckdna08rn001988veclvcezyq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/15/cpp-notes-set/" data-id="ckdomu2py001e1kve3xak43t4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp-notes/" rel="tag">cpp notes</a></li></ul>
@@ -517,7 +511,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -531,7 +525,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-primer/" rel="tag">c++ primer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp-notes/" rel="tag">cpp notes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/problem-library/" rel="tag">problem library</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reading-notes-DS/" rel="tag">reading notes DS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%82%93%E4%BF%8A%E8%BE%89/" rel="tag">数据结构 邓俊辉</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-primer/" rel="tag">c++ primer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cocos2d-x/" rel="tag">cocos2d-x</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp-notes/" rel="tag">cpp notes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/problem-library/" rel="tag">problem library</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reading-notes-DS/" rel="tag">reading notes DS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%82%93%E4%BF%8A%E8%BE%89/" rel="tag">数据结构 邓俊辉</a></li></ul>
     </div>
   </div>
 
@@ -541,7 +535,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/c-primer/" style="font-size: 10px;">c++ primer</a> <a href="/tags/cpp-notes/" style="font-size: 20px;">cpp notes</a> <a href="/tags/problem-library/" style="font-size: 13.33px;">problem library</a> <a href="/tags/reading-notes-DS/" style="font-size: 10px;">reading notes DS</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%82%93%E4%BF%8A%E8%BE%89/" style="font-size: 16.67px;">数据结构 邓俊辉</a>
+      <a href="/tags/c-primer/" style="font-size: 10px;">c++ primer</a> <a href="/tags/cocos2d-x/" style="font-size: 12.5px;">cocos2d-x</a> <a href="/tags/cpp-notes/" style="font-size: 20px;">cpp notes</a> <a href="/tags/problem-library/" style="font-size: 15px;">problem library</a> <a href="/tags/reading-notes-DS/" style="font-size: 10px;">reading notes DS</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%82%93%E4%BF%8A%E8%BE%89/" style="font-size: 17.5px;">数据结构 邓俊辉</a>
     </div>
   </div>
 
@@ -563,6 +557,14 @@
       <ul>
         
           <li>
+            <a href="/2020/08/10/cocos2d-x-02-%E5%8A%A8%E4%BD%9C/">cocos2d-x 02 动作</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/10/cocos2d-x-01/">cocos2d-x 01</a>
+          </li>
+        
+          <li>
             <a href="/2020/08/09/problem-library-%E5%93%88%E5%B8%8C/">problem library 哈希</a>
           </li>
         
@@ -572,14 +574,6 @@
         
           <li>
             <a href="/2020/08/06/c-primer-04-%E8%A1%A8%E8%BE%BE%E5%BC%8F/">c++ primer 04 表达式</a>
-          </li>
-        
-          <li>
-            <a href="/2020/07/28/problem-library-%E6%A0%91-02/">problem library 树 02</a>
-          </li>
-        
-          <li>
-            <a href="/2020/07/27/DS%E9%82%93%E4%BF%8A%E8%BE%89-10/">DS邓俊辉 10 优先级队列</a>
           </li>
         
       </ul>
