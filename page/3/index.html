@@ -64,6 +64,63 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-problem-library-树-02" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/28/problem-library-%E6%A0%91-02/" class="article-date">
+  <time datetime="2020-07-28T15:15:05.000Z" itemprop="datePublished">2020-07-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/28/problem-library-%E6%A0%91-02/">problem library 树 02</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="106-从中序与后序遍历序列构造二叉树"><a href="#106-从中序与后序遍历序列构造二叉树" class="headerlink" title="#106.从中序与后序遍历序列构造二叉树"></a>#106.从中序与后序遍历序列构造二叉树</h2><p>根据一棵树的中序遍历与后序遍历构造二叉树。</p>
+<p>注意:<br>你可以假设树中没有重复的元素。</p>
+<p>例如，给出</p>
+<p>中序遍历 inorder = [9,3,15,20,7]<br>后序遍历 postorder = [9,15,7,20,3]<br>返回如下的二叉树：</p>
+<pre><code>  3
+ / \
+9  20
+  /  \
+ 15   7</code></pre><p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal" target="_blank" rel="noopener">https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">helper</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;inorder, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;postorder, <span class="keyword">int</span> i_begin, <span class="keyword">int</span> i_end, <span class="keyword">int</span> p_begin, <span class="keyword">int</span> p_end)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (i_begin &gt; i_end || p_begin &gt; p_end)<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">        TreeNode* res = <span class="keyword">new</span> TreeNode(postorder[p_end]);</span><br><span class="line">        <span class="keyword">if</span> (p_begin == p_end)<span class="keyword">return</span> res;</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (postorder[p_end] != inorder[index])index++;</span><br><span class="line">        res-&gt;left = helper(inorder, postorder, i_begin, index - <span class="number">1</span>, p_begin, p_begin + index - <span class="number">1</span> - i_begin);</span><br><span class="line">        res-&gt;right = helper(inorder, postorder, index + <span class="number">1</span>, i_end, p_end - <span class="number">1</span> - (i_end - (index + <span class="number">1</span>)), p_end - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">TreeNode* <span class="title">buildTree</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; inorder, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; postorder)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> helper(inorder, postorder, <span class="number">0</span>, inorder.<span class="built_in">size</span>() - <span class="number">1</span>, <span class="number">0</span>, postorder.<span class="built_in">size</span>() - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="95-不同的二叉搜索树II"><a href="#95-不同的二叉搜索树II" class="headerlink" title="#95.不同的二叉搜索树II"></a>#95.不同的二叉搜索树II</h2><p>给定一个整数 n，生成所有由 1 … n 为节点所组成的 二叉搜索树 。</p>
+<p>示例：</p>
+<p>输入：3<br>输出：<br>[<br>  [1,null,3,2],<br>  [3,2,null,1],<br>  [3,1,null,null,2],<br>  [2,1,3],<br>  [1,null,2,null,3]<br>]<br>解释：<br>以上的输出对应以下 5 种不同结构的二叉搜索树：</p>
+<pre><code>1         3     3      2      1
+ \       /     /      / \      \
+  3     2     1      1   3      2
+ /     /       \                 \
+2     1         2                 3</code></pre><p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/unique-binary-search-trees-ii" target="_blank" rel="noopener">https://leetcode-cn.com/problems/unique-binary-search-trees-ii</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;TreeNode*&gt; <span class="title">getrees</span><span class="params">(<span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (lo &gt; hi)<span class="keyword">return</span> &#123; <span class="literal">nullptr</span> &#125;;</span><br><span class="line">        <span class="built_in">vector</span>&lt;TreeNode*&gt;res;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = lo; i &lt;= hi; i++) &#123;</span><br><span class="line">            <span class="built_in">vector</span>&lt;TreeNode*&gt; leftTrees = getrees(lo, i - <span class="number">1</span>);</span><br><span class="line">            <span class="built_in">vector</span>&lt;TreeNode*&gt; rightTrees = getrees(i + <span class="number">1</span>, hi);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; l : leftTrees)</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; r : rightTrees) &#123;</span><br><span class="line">                    TreeNode* root = <span class="keyword">new</span> TreeNode(i);</span><br><span class="line">                    root-&gt;left = l;</span><br><span class="line">                    root-&gt;right = r;</span><br><span class="line">                    res.emplace_back(root);</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;TreeNode*&gt; <span class="title">generateTrees</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n &lt;= <span class="number">0</span>)<span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">        <span class="keyword">return</span> getrees(<span class="number">1</span>, n);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/28/problem-library-%E6%A0%91-02/" data-id="ckhkopsdy002pesveg5h6bgqo" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/problem-library/" rel="tag">problem library</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-DS邓俊辉-10" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/07/27/DS%E9%82%93%E4%BF%8A%E8%BE%89-10/" class="article-date">
@@ -617,57 +674,6 @@
 
 
   
-    <article id="post-DS邓俊辉-03" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/07/23/DS%E9%82%93%E4%BF%8A%E8%BE%89-03/" class="article-date">
-  <time datetime="2020-07-23T14:26:24.000Z" itemprop="datePublished">2020-07-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/23/DS%E9%82%93%E4%BF%8A%E8%BE%89-03/">DS邓俊辉 03 列表</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><p>根据是否修改数据结构，操作分为：<br>静态：仅读取，内容及组成一般不变<br>动态：需写入，数据结构的局部或整体将改变</p>
-<p>数据元素的存储与组织方式也分为：<br>静态：数据空间整体创建活销毁，数据元素的物理存储次序与其逻辑次序严格一致，可支持高效的静态动作<br>动态：为各数据元素动态地分配和回收的物理空间，逻辑上相邻的元素记录彼此的物理地址，在逻辑上形成一个整体，可支持高效的动态操作</p>
-<p>列表(list)是采用动态储存的典型结构，其中的元素称作节点(node)，各节点通过指针或引用彼此联接，在逻辑上构成一个线性序列<br>前驱(predecessor)和后继(successor)若存在必然唯一，没有的称作首(first/front)/末(last/rear)节点</p>
-<p>向量支持循秩访问(call-by-rank)的方式。根据元素的秩，在O(1)的时间内确定物理地址V[i]=V+i*s。然而列表寻秩访问成本过高，应改用循位置访问(call-by-position)的方式。利用节点之间的相互引用，找到特定节点。</p>
-<p>查找：<br>在节点p(可能是trailer)的n个(真)前驱中，找到等于e的最后者。<br>template<typename T> //从外部调用时，0&lt;=n&lt;=rank(p)<br>Posi(T) List<T>::find(T const&amp; e,int n, Posi(t) p)const{ //顺序查找，O(n)<br>    while(0&lt;n–)  //从右向左，逐个将p的前驱与e比对<br>        if(e==(p=p-&gt;pred)-&gt;data) return p; //直至命中或越界<br>    return NULL;<br>}<br>插入：<br>template<typename T> Posi(T) List<T>::insertBefore(Posi(T) p, T const&amp; e)<br>{_size++; return p-&gt;insertAsPred(e);} //e当作p的前驱插入<br>template<typename T> //前插算法<br>Posi(T)::ListNode<T>::insertAsPred(T const&amp; e) { //O(1)<br>    Posi(T)x = new ListNode(e, pred, this); //创建（耗时100倍）<br>    pred-&gt;succ = x; pred = x; return x; //建立链接，返回新节点位置<br>}</p>
-<p>基于复制的构造<br>template<typename T><br>void List<T>::copyNdoes(Posi(T) p, int n) {<br>    init();<br>    while (n–) {<br>        insertAsLast(p-&gt;data); p = p-&gt;succ;<br>    }<br>}</p>
-<p>删除：<br>template<typename T><br>T List<T>::remove(Posi(T) p) {<br>    T e = p-&gt;data;<br>    p-&gt;pred-&gt;succ = p-&gt;succ;<br>    p-&gt;succ-&gt;pred = p-&gt;pred;<br>    delete p; _size–; return e;<br>}</p>
-<p>析构：<br>template<typename T> List<T>::~List()<br>{clear(); delete header; delete trailer;} //清空列表，释放头、尾节点<br>template<typename T> int List<T>::clear() {<br>    int oldSize = _size;<br>    while (0 &lt; _size)<br>        remove(header-&gt;succ);<br>    return oldsize;<br>}</p>
-<p>唯一化：<br>template<typename T> int List<T>::deduplicate() {<br>    if (_size &lt; 2) return 0;<br>    int oldSize = _size;<br>    Posi(T) p = first(); Rank r = 1; //p从首节点起<br>    while (trailer != p-&gt;succ) { //依次到末节点<br>        Pose(T) q = find(p-&gt;dara, r, p); //在p的r个前驱中查找雷同<br>        q ? remove(q) : r++;<br>    }<br>    return oldSize - _size;<br>}</p>
-<p>有序列表<br>唯一化：<br>template<typename T> int List<T>::uniquify() {<br>    if (_size &lt; 2)return 0;<br>    int oldSize = _size;<br>    ListPodePosi(T) p = first(); ListNodePosi(T)q;<br>    while (trailer != (q = p-&gt;succ)) //反复考察紧邻的节点对（p,q）<br>        if (p-&gt;data != q-&gt;data)p = q; //若互异，转向下一区段<br>        else remove(q); //若雷同，删除后者<br>    return oldSize - _size;<br>}</p>
-<p>查找：<br>template<typename T> //在有序列表内节点p的n个前驱中，找到不大于e的最后者<br>Posi(T) List<T>::search(T const&amp; e, int n, Posi(T) p) const {<br>    while (0 &lt;= n–) //对于p的最近的n个前驱，从右向左<br>        if (((p = p-&gt;pred)-&gt;data) &lt;= e)break; //逐个比较<br>    return p;<br>}</p>
-<p>选择排序：<br>//对列表中起始于位置p的连续n个元素做选择排序<br>template<typename T> void List<T>::selectionSort(Posi(T) p, int n) {<br>    Posi(T) head = p-&gt;pred; Posi(T) tail = p; //待排序区间（head,tail）<br>    for (int i = 0; i &lt; n; i++)tail = tail-&gt;succ; //head/tail可能是头/尾哨兵<br>    while (1, n) { //反复从（非平凡）待排序区间内找出最多找，并移至有序区间前端<br>        insertBefore(tail, remove(selectMax(head-&gt;succ, n)));<br>        tail = tail-&gt;pred; n–; //待排序区间、有序区间的范围，均同步更新<br>    }<br>}<br>selecMax:<br>template<typename T><br>Posi(T) List<T>::selectMax(Posi(T) p, int n) {<br>    Posi(T) max = p;<br>    for (Posi(T) cur = p; 1 &lt; n; n–)<br>        if (!lt((cur = cur-&gt;cuss)-&gt;data, max-&gt;data)) //若&gt;=max<br>            max = cur;<br>    return max;<br>}<br>// eq(equal to),ne(not equal to),ge(greater than or equal to),gt(greater than),le(less than or equal to),lt(less than)<br>//返回true或false</p>
-<p>插入排序：<br>//对列表中起始于位置p的连续n个元素做插入排序<br>template<typename T> void List<T>::insertionSort(Posi(T) p, int n) {<br>    for (int r = 0; r &lt; n; r++) {<br>        insertAfter(search(p-&gt;data, r, p), p-&gt;data); //查找+插入<br>        p = p - succ; remove(p-&gt;pred); //转向下一节点<br>    } //n次迭代，每次O(r+1)<br>} //仅适用O(1)辅助空间，属于就地(in-place)算法</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/23/DS%E9%82%93%E4%BF%8A%E8%BE%89-03/" data-id="ckhkopscw0001esvegg53d73t" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%82%93%E4%BF%8A%E8%BE%89/" rel="tag">数据结构 邓俊辉</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -718,6 +724,10 @@
       <ul>
         
           <li>
+            <a href="/2020/11/18/ncpp-05/">第5章 语句</a>
+          </li>
+        
+          <li>
             <a href="/2020/11/17/ncpp-04/">第4章 表达式</a>
           </li>
         
@@ -731,10 +741,6 @@
         
           <li>
             <a href="/2020/11/16/ncpp-02/">第2章 变量和基本类型</a>
-          </li>
-        
-          <li>
-            <a href="/2020/10/27/mysql/">mysql</a>
           </li>
         
       </ul>

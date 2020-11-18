@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>第5章 语句 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="简单语句最简单的语句是空语句(null statement)，只含有一个单独的分号 复合语句(compound statement)是指用花括号括起来的语句和声明的序列(可能为空)，也被称为块(block)一个块就是一个作用域，在块中引入的名字只能在块内部以及嵌套在块中的子块里访问块不以分号作为结束 悬垂elseelse与离它最近的尚未匹配的if匹配，从而消除程序的二义性 switch语句swit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第5章 语句">
+<meta property="og:url" content="http://yoursite.com/2020/11/18/ncpp-05/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="简单语句最简单的语句是空语句(null statement)，只含有一个单独的分号 复合语句(compound statement)是指用花括号括起来的语句和声明的序列(可能为空)，也被称为块(block)一个块就是一个作用域，在块中引入的名字只能在块内部以及嵌套在块中的子块里访问块不以分号作为结束 悬垂elseelse与离它最近的尚未匹配的if匹配，从而消除程序的二义性 switch语句swit">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2020/11/18/6EiUHaWA9R3gcXZ.png">
+<meta property="article:published_time" content="2020-11-18T14:08:21.000Z">
+<meta property="article:modified_time" content="2020-11-18T16:07:10.116Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="02 cpp primer">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/11/18/6EiUHaWA9R3gcXZ.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ncpp-05" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/18/ncpp-05/" class="article-date">
+  <time datetime="2020-11-18T14:08:21.000Z" itemprop="datePublished">2020-11-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      第5章 语句
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="简单语句"><a href="#简单语句" class="headerlink" title="简单语句"></a>简单语句</h2><p>最简单的语句是空语句(null statement)，只含有一个单独的分号</p>
+<p>复合语句(compound statement)是指用花括号括起来的语句和声明的序列(可能为空)，也被称为块(block)<br>一个块就是一个作用域，在块中引入的名字只能在块内部以及嵌套在块中的子块里访问<br>块不以分号作为结束</p>
+<h4 id="悬垂else"><a href="#悬垂else" class="headerlink" title="悬垂else"></a>悬垂else</h4><p>else与离它最近的尚未匹配的if匹配，从而消除程序的二义性</p>
+<h3 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h3><p>switch语句(switch statement)提供了一条便利的途径是的我们能够在若干固定选项中做出抉择</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> aCnt=<span class="number">0</span>,eCnt=<span class="number">0</span>,iCne=<span class="number">0</span>,oCnt=<span class="number">0</span>,uCnt=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">char</span> ch;</span><br><span class="line"><span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;ch)&#123;</span><br><span class="line">    <span class="keyword">switch</span>(ch)&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'a'</span>:</span><br><span class="line">            ++aCnt;<span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'e'</span>:</span><br><span class="line">            ++eCnt;<span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'i'</span>:</span><br><span class="line">            ++icnt;<span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'o'</span>:</span><br><span class="line">            ++oCnt;<span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'u'</span>:</span><br><span class="line">            ++uCnt;<span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>case关键字和它对应的值一起被称为case标签(case label)。case标签必须是整型常量表达式</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> ch = getVal();</span><br><span class="line"><span class="keyword">int</span> ival = <span class="number">42</span>;</span><br><span class="line"><span class="keyword">switch</span>(ch)&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">3.14</span>:  <span class="comment">//错误：不是一个整数</span></span><br><span class="line">    <span class="keyword">case</span> ival:  <span class="comment">//错误：不是一个常量</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果某个case标签匹配成功，将从该标签开始往后顺序执行所有case分支</p>
+<p>如果没有任何一个case标签能匹配上switch表达式的值，程序将执行紧跟在default标签(default label)后面的语句</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(ch)&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'a'</span>: <span class="keyword">case</span> <span class="string">'e'</span>: <span class="keyword">case</span> <span class="string">'i'</span>: <span class="keyword">case</span> <span class="string">'o'</span>: <span class="keyword">case</span> <span class="string">'u'</span>:</span><br><span class="line">    ++vowelCnt;</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        ++otherCnt;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="迭代语句"><a href="#迭代语句" class="headerlink" title="迭代语句"></a>迭代语句</h2><h3 id="传统for语句"><a href="#传统for语句" class="headerlink" title="传统for语句"></a>传统for语句</h3><p>for语句头中的定义可以定义多个对象，但只能有一条声明语句，因此所有变量的基础类型必须相同</p>
+<h2 id="try语句块和异常处理"><a href="#try语句块和异常处理" class="headerlink" title="try语句块和异常处理"></a>try语句块和异常处理</h2><p>异常是指存在于运行时的反常行为，这些行为超出了函数正常功能的范围<br>异常处理包括：<br>·throw表达式(throw expression)，异常检测部分使用throw表达式来表示它遇到了无法处理的问题。说throw引发(raise)了异常<br>·try语句块(try block)，异常处理部分使用try语句块处理异常。try语句块以try开始，并以一个或多个catch子句(catch clause)结束。try语句块中代码抛出的异常通常会被某个catch子句处理。因为catch子句“处理”异常，所以它们也被称作异常处理代码(exception handler)<br>·一套异常类(exception class)，用于在throw表达式和相关的catch子句指甲传递异常的具体信息</p>
+<h3 id="throw表达式"><a href="#throw表达式" class="headerlink" title="throw表达式"></a>throw表达式</h3><p>程序的异常检测部分使用throw表达式引发一个异常。throw表达式包含关键字throw和紧随其后的一个表达式，其中表达式的类型就是抛出的异常类型</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(item1.isbn() != item2.isbn())</span><br><span class="line">    <span class="keyword">throw</span> runtime_error(<span class="string">"Data must refer to same ISBN"</span>);</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; item1 + item2 &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
+
+<p>如果ISBN不一样就抛出一个类型为runtime_error的异常，抛出异常将终止当前函数，并把控制权转移给能处理该异常的代码</p>
+<h3 id="try语句块"><a href="#try语句块" class="headerlink" title="try语句块"></a>try语句块</h3><p>try语句块的通用语法形式是:<br>try{<br>    <em>program-</em><br>}catch (<em>exception-declaration</em>){<br>    <em>handler-statements</em><br>}catch (<em>exception-declaration</em>){<br>    <em>handler-statements</em><br>}   // …<br>当选中了某个catch子句处理异常之后，执行与之对应的块。catch一旦完成，程序跳转到try语句块最后一个catch子句之后的那条语句继续执行</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;item1&gt;&gt;item2)&#123;</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">        <span class="comment">//执行添加两个Sales_data对象的代码</span></span><br><span class="line">        <span class="comment">//如果失败，抛出runtime_error异常</span></span><br><span class="line">    &#125;<span class="keyword">catch</span>(runtime_error err)&#123;</span><br><span class="line">        <span class="comment">//提醒用户两个ISBN必须一致，询问是否重新输入</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; err.whar()</span><br><span class="line">             &lt;&lt; <span class="string">"\nTry Again? Enter y or n"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">char</span> c;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; c;</span><br><span class="line">        <span class="keyword">if</span>(!<span class="built_in">cin</span> || c==<span class="string">'n'</span>)</span><br><span class="line">            <span class="keyword">break</span>;  <span class="comment">//跳出while循环</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>每个标准库异常类都定义了名为what的成员函数，这些函数没有参数，返回值是C风格字符串(const char*)<br>runtime_error的what成员返回的是初始化一个具体对象时所用的string对象是副本</p>
+<p>如果没有找到匹配的catch子句，程序转到名为terminate的标准库函数。该函数的行为与系统有关，一般情况下，执行该函数将导致程序非正常退出</p>
+<h3 id="标准异常"><a href="#标准异常" class="headerlink" title="标准异常"></a>标准异常</h3><p>C++标准库定义了一组类，用于报告标准库函数遇到的问题。分别定义在四个头文件中</p>
+<p><img src="https://i.loli.net/2020/11/18/6EiUHaWA9R3gcXZ.png" alt="Snipaste_2020-11-19_00-05-26.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/11/18/ncpp-05/" data-id="ckhnln1580000twveg4f7fcky" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/02-cpp-primer/" rel="tag">02 cpp primer</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/11/17/ncpp-04/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">第4章 表达式</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/02-cpp-primer/" rel="tag">02 cpp primer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-primer/" rel="tag">c++ primer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cocos2d-x/" rel="tag">cocos2d-x</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp-notes/" rel="tag">cpp notes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/problem-library/" rel="tag">problem library</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reading-notes-DS/" rel="tag">reading notes DS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%82%93%E4%BF%8A%E8%BE%89/" rel="tag">数据结构 邓俊辉</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/02-cpp-primer/" style="font-size: 14px;">02 cpp primer</a> <a href="/tags/c-primer/" style="font-size: 16px;">c++ primer</a> <a href="/tags/cocos2d-x/" style="font-size: 12px;">cocos2d-x</a> <a href="/tags/cpp-notes/" style="font-size: 20px;">cpp notes</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/problem-library/" style="font-size: 16px;">problem library</a> <a href="/tags/reading-notes-DS/" style="font-size: 10px;">reading notes DS</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%82%93%E4%BF%8A%E8%BE%89/" style="font-size: 18px;">数据结构 邓俊辉</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/18/ncpp-05/">第5章 语句</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/17/ncpp-04/">第4章 表达式</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/16/%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/">操作方法</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/16/ncpp-03/">第3章 字符串、向量和数组</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/16/ncpp-02/">第2章 变量和基本类型</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
