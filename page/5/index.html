@@ -64,6 +64,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-cpp-notes-查找算法-02" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/15/cpp-notes-%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95-02/" class="article-date">
+  <time datetime="2020-07-15T15:31:08.000Z" itemprop="datePublished">2020-07-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/15/cpp-notes-%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95-02/">cpp notes 查找算法 02</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="adjacent-find"><a href="#adjacent-find" class="headerlink" title="adjacent_find:"></a>adjacent_find:</h2><p>查找相邻重复元素，返回相邻元素的第一个位置的迭代器</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">t01</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;v;</span><br><span class="line">	v.push_back(<span class="number">2</span>);</span><br><span class="line">	v.push_back(<span class="number">3</span>);</span><br><span class="line">	v.push_back(<span class="number">5</span>);</span><br><span class="line">	v.push_back(<span class="number">5</span>);</span><br><span class="line">	v.push_back(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it=adjacent_find(v.<span class="built_in">begin</span>(), v.<span class="built_in">end</span>());</span><br><span class="line">	<span class="keyword">if</span> (it == v.<span class="built_in">end</span>())</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"didnt find"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"find : "</span> &lt;&lt; *it &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="binary-search"><a href="#binary-search" class="headerlink" title="binary_search:"></a>binary_search:</h2><p>查找指定元素是否存在，返回true或者false，只能在有序序列中使用</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">t02</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;v;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		v.push_back(i);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">bool</span> ret=binary_search(v.<span class="built_in">begin</span>(), v.<span class="built_in">end</span>(), <span class="number">9</span>);</span><br><span class="line">	<span class="keyword">if</span> (ret)</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"find"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"didnt find"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="count"><a href="#count" class="headerlink" title="count:"></a>count:</h2><p>统计元素个数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">t03</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;v;</span><br><span class="line">	v.push_back(<span class="number">2</span>);</span><br><span class="line">	v.push_back(<span class="number">3</span>);</span><br><span class="line">	v.push_back(<span class="number">5</span>);</span><br><span class="line">	v.push_back(<span class="number">5</span>);</span><br><span class="line">	v.push_back(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> num=count(v.<span class="built_in">begin</span>(), v.<span class="built_in">end</span>(), <span class="number">5</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; num &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Person(<span class="built_in">string</span> name, <span class="keyword">int</span> age)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">this</span>-&gt;m_Name = name;</span><br><span class="line">		<span class="keyword">this</span>-&gt;m_Age = age;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">bool</span> <span class="keyword">operator</span>==(<span class="keyword">const</span> Person &amp;p)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">this</span>-&gt;m_Name == p.m_Name &amp;&amp; <span class="keyword">this</span>-&gt;m_Age == p.m_Age)</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">string</span> m_Name;</span><br><span class="line">	<span class="keyword">int</span> m_Age;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">t04</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">vector</span>&lt;Person&gt;v;</span><br><span class="line">	<span class="function">Person <span class="title">p1</span><span class="params">(<span class="string">"tom"</span>,<span class="number">10</span>)</span></span>;</span><br><span class="line">	<span class="function">Person <span class="title">p2</span><span class="params">(<span class="string">"jerry"</span>, <span class="number">3</span>)</span></span>;</span><br><span class="line">	<span class="function">Person <span class="title">p3</span><span class="params">(<span class="string">"tom"</span>, <span class="number">10</span>)</span></span>;</span><br><span class="line">	<span class="function">Person <span class="title">p4</span><span class="params">(<span class="string">"jerry"</span>, <span class="number">3</span>)</span></span>;</span><br><span class="line">	<span class="function">Person <span class="title">p5</span><span class="params">(<span class="string">"tom"</span>, <span class="number">10</span>)</span></span>;</span><br><span class="line">	<span class="function">Person <span class="title">p6</span><span class="params">(<span class="string">"tom"</span>, <span class="number">10</span>)</span></span>;</span><br><span class="line">	v.push_back(p1);</span><br><span class="line">	v.push_back(p2);</span><br><span class="line">	v.push_back(p3);</span><br><span class="line">	v.push_back(p4);</span><br><span class="line">	v.push_back(p5);</span><br><span class="line">	v.push_back(p6);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; count(v.<span class="built_in">begin</span>(), v.<span class="built_in">end</span>(), p1) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="count-if"><a href="#count-if" class="headerlink" title="count_if:"></a>count_if:</h2><p>按条件统计元素个数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Greater3</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="keyword">int</span> v)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> v &gt; <span class="number">3</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">t05</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;v;</span><br><span class="line">	v.push_back(<span class="number">2</span>);</span><br><span class="line">	v.push_back(<span class="number">3</span>);</span><br><span class="line">	v.push_back(<span class="number">5</span>);</span><br><span class="line">	v.push_back(<span class="number">5</span>);</span><br><span class="line">	v.push_back(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; count_if(v.<span class="built_in">begin</span>(), v.<span class="built_in">end</span>(), Greater3()) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Worker</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Worker(<span class="built_in">string</span> name, <span class="keyword">int</span> age)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">this</span>-&gt;m_Name = name;</span><br><span class="line">		<span class="keyword">this</span>-&gt;m_Age = age;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">string</span> m_Name;</span><br><span class="line">	<span class="keyword">int</span> m_Age;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Greater4</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(Worker w)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (w.m_Age &gt; <span class="number">4</span>)</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">t06</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">vector</span>&lt;Worker&gt;v;</span><br><span class="line">	<span class="function">Worker <span class="title">p1</span><span class="params">(<span class="string">"tom"</span>, <span class="number">10</span>)</span></span>;</span><br><span class="line">	<span class="function">Worker <span class="title">p2</span><span class="params">(<span class="string">"jerry"</span>, <span class="number">3</span>)</span></span>;</span><br><span class="line">	<span class="function">Worker <span class="title">p3</span><span class="params">(<span class="string">"tom"</span>, <span class="number">10</span>)</span></span>;</span><br><span class="line">	<span class="function">Worker <span class="title">p4</span><span class="params">(<span class="string">"jerry"</span>, <span class="number">3</span>)</span></span>;</span><br><span class="line">	<span class="function">Worker <span class="title">p5</span><span class="params">(<span class="string">"tom"</span>, <span class="number">10</span>)</span></span>;</span><br><span class="line">	<span class="function">Worker <span class="title">p6</span><span class="params">(<span class="string">"tom"</span>, <span class="number">10</span>)</span></span>;</span><br><span class="line">	v.push_back(p1);</span><br><span class="line">	v.push_back(p2);</span><br><span class="line">	v.push_back(p3);</span><br><span class="line">	v.push_back(p4);</span><br><span class="line">	v.push_back(p5);</span><br><span class="line">	v.push_back(p6);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;count_if(v.<span class="built_in">begin</span>(), v.<span class="built_in">end</span>(), Greater4()) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	t06();</span><br><span class="line">	system(<span class="string">"pause"</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/15/cpp-notes-%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95-02/" data-id="ckhua8rok0028xsve9uoihulu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp-notes/" rel="tag">cpp notes</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-cpp-notes-for-each-transform-find" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/07/15/cpp-notes-for-each-transform-find/" class="article-date">
@@ -92,7 +138,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/15/cpp-notes-for-each-transform-find/" data-id="ckhq93pu2001pa0ve14u6eqga" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/15/cpp-notes-for-each-transform-find/" data-id="ckhua8rod001sxsveebdja31v" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp-notes/" rel="tag">cpp notes</a></li></ul>
@@ -134,7 +180,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/15/cpp-notes-find-find-if/" data-id="ckhq93pu2001ra0veekaxfxy5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/15/cpp-notes-find-find-if/" data-id="ckhua8roe001uxsvea0nf9lni" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp-notes/" rel="tag">cpp notes</a></li></ul>
@@ -181,7 +227,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/15/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/" data-id="ckhq93puf0032a0vehftcfzf3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/15/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/" data-id="ckhua8rpg003mxsve2bcpg3pl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp-notes/" rel="tag">cpp notes</a></li></ul>
@@ -226,7 +272,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/15/cpp-notes-map/" data-id="ckhq93pu3001ta0vecump5wxe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/15/cpp-notes-map/" data-id="ckhua8roi0020xsve8kkzbdqb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp-notes/" rel="tag">cpp notes</a></li></ul>
@@ -267,7 +313,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/15/case-03-map/" data-id="ckhq93ptx0018a0veboodclor" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/15/case-03-map/" data-id="ckhua8ro60016xsve3nc8e5v3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp-notes/" rel="tag">cpp notes</a></li></ul>
@@ -323,7 +369,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/15/reading-notes-DS-01/" data-id="ckhq93puf0030a0vee2fshubn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/15/reading-notes-DS-01/" data-id="ckhua8rph003oxsvedjt7ffx6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reading-notes-DS/" rel="tag">reading notes DS</a></li></ul>
@@ -371,7 +417,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/15/cpp-notes-set/" data-id="ckhq93pu4001za0ve98p86qh3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/15/cpp-notes-set/" data-id="ckhua8roj0024xsve75hs04la" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp-notes/" rel="tag">cpp notes</a></li></ul>
@@ -411,7 +457,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/14/case-02-list/" data-id="ckhq93ptv0011a0vegod034vc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/14/case-02-list/" data-id="ckhua8ro50014xsvef2pwf91g" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp-notes/" rel="tag">cpp notes</a></li></ul>
@@ -455,49 +501,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/14/cpp-notes-list/" data-id="ckhq93pu3001va0ve9yf04l0q" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp-notes/" rel="tag">cpp notes</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-cpp notes stack and queue" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/07/14/cpp%20notes%20stack%20and%20queue/" class="article-date">
-  <time datetime="2020-07-14T14:08:42.890Z" itemprop="datePublished">2020-07-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/14/cpp%20notes%20stack%20and%20queue/">stack and queue</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="栈stack"><a href="#栈stack" class="headerlink" title="栈stack"></a>栈stack</h2><p>#include&lt; stack&gt;<br>先（栈底back）进后（栈顶top）出<br>不允许遍历,可以判断是否为空、返回元素个数</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">t01</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt;s;</span><br><span class="line">	s.push(<span class="number">2</span>);</span><br><span class="line">	s.push(<span class="number">3</span>);</span><br><span class="line">	s.push(<span class="number">4</span>);</span><br><span class="line">	s.push(<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span> (!s.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; s.top() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		s.pop();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; s.<span class="built_in">size</span>() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="队列queue"><a href="#队列queue" class="headerlink" title="队列queue"></a>队列queue</h2><p>#include&lt; queue&gt;<br>先进（队头front）先出（队尾back）<br>只有队头、队尾能被访问，不允许遍历，可以判断空、返回元素个数</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Person(<span class="built_in">string</span> name, <span class="keyword">int</span> age)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">this</span>-&gt;m_Name = name;</span><br><span class="line">		<span class="keyword">this</span>-&gt;m_Age = age;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">string</span> m_Name;</span><br><span class="line">	<span class="keyword">int</span> m_Age;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">t02</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">queue</span>&lt;Person&gt;q;</span><br><span class="line">	<span class="function">Person <span class="title">p1</span><span class="params">(<span class="string">"spike"</span>,<span class="number">10</span>)</span></span>;</span><br><span class="line">	<span class="function">Person <span class="title">p2</span><span class="params">(<span class="string">"tom"</span>,<span class="number">8</span>)</span></span>;</span><br><span class="line">	<span class="function">Person <span class="title">p3</span><span class="params">(<span class="string">"jerry"</span>,<span class="number">3</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">	q.push(p1);</span><br><span class="line">	q.push(p2);</span><br><span class="line">	q.push(p3);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"size is "</span> &lt;&lt; q.<span class="built_in">size</span>() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">while</span> (!q.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"front: name is "</span> &lt;&lt; q.front().m_Name &lt;&lt; <span class="string">" and age is "</span> &lt;&lt; q.front().m_Age &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"back: name is "</span> &lt;&lt; q.back().m_Name &lt;&lt; <span class="string">" and age is "</span> &lt;&lt; q.back().m_Age &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		q.pop();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"size is "</span> &lt;&lt; q.<span class="built_in">size</span>() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	t02();</span><br><span class="line">	system(<span class="string">"pause"</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/14/cpp%20notes%20stack%20and%20queue/" data-id="ckhq93pty001ca0ve467gd9fn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/14/cpp-notes-list/" data-id="ckhua8rof001wxsveawgzc9gk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp-notes/" rel="tag">cpp notes</a></li></ul>
@@ -559,6 +563,10 @@
       <ul>
         
           <li>
+            <a href="/2020/11/22/ncpp-08/">ncpp-08</a>
+          </li>
+        
+          <li>
             <a href="/2020/11/20/ncpp-07/">第7章 类</a>
           </li>
         
@@ -572,10 +580,6 @@
         
           <li>
             <a href="/2020/11/17/ncpp-04/">第4章 表达式</a>
-          </li>
-        
-          <li>
-            <a href="/2020/11/16/%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/">操作方法</a>
           </li>
         
       </ul>
