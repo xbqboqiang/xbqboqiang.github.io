@@ -5,15 +5,24 @@
   
 
   
-  <title>Archives | Hexo</title>
+  <title>第9章 顺序容器 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/page/6/index.html">
+  <meta name="description" content="一个容器就是一些特定类型对象的集合。顺序容器(sequential container)提供了控制元素存储和访问顺序的能力。这种顺序不依赖于元素的值，而是与元素加入容器时的位置相对应 顺序容器概述顺序容器类型：  确定使用哪种容器·除非有很好的理由选择其他容器，否则用vector·有很多小的元素，且空间额外开销很重要，则不用list或forward_list·要求随机访问元素，应使用vector或">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第9章 顺序容器">
+<meta property="og:url" content="http://yoursite.com/2020/11/23/ncpp-09/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一个容器就是一些特定类型对象的集合。顺序容器(sequential container)提供了控制元素存储和访问顺序的能力。这种顺序不依赖于元素的值，而是与元素加入容器时的位置相对应 顺序容器概述顺序容器类型：  确定使用哪种容器·除非有很好的理由选择其他容器，否则用vector·有很多小的元素，且空间额外开销很重要，则不用list或forward_list·要求随机访问元素，应使用vector或">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2020/11/23/7IdV1bjxOhYGEgf.png">
+<meta property="og:image" content="https://i.loli.net/2020/11/23/8IAawbK5RqeGsoD.png">
+<meta property="og:image" content="https://i.loli.net/2020/11/23/DQtdY4G1qLTnhvI.png">
+<meta property="article:published_time" content="2020-11-23T08:23:14.000Z">
+<meta property="article:modified_time" content="2020-11-23T16:01:33.194Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="02 cpp primer">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/11/23/7IdV1bjxOhYGEgf.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -62,216 +71,64 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/07/14/cpp-notes-list/" class="archive-article-date">
-  <time datetime="2020-07-14T14:47:21.000Z" itemprop="datePublished">Jul 14</time>
+        <section id="main"><article id="post-ncpp-09" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/23/ncpp-09/" class="article-date">
+  <time datetime="2020-11-23T08:23:14.000Z" itemprop="datePublished">2020-11-23</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/14/cpp-notes-list/">cpp notes list</a>
+    <h1 class="article-title" itemprop="name">
+      第9章 顺序容器
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/07/14/cpp%20notes%20stack%20and%20queue/" class="archive-article-date">
-  <time datetime="2020-07-14T14:08:42.890Z" itemprop="datePublished">Jul 14</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/14/cpp%20notes%20stack%20and%20queue/">stack and queue</a>
-    </h1>
-  
+        <p>一个容器就是一些特定类型对象的集合。顺序容器(sequential container)提供了控制元素存储和访问顺序的能力。这种顺序不依赖于元素的值，而是与元素加入容器时的位置相对应</p>
+<h2 id="顺序容器概述"><a href="#顺序容器概述" class="headerlink" title="顺序容器概述"></a>顺序容器概述</h2><p>顺序容器类型：</p>
+<p><img src="https://i.loli.net/2020/11/23/7IdV1bjxOhYGEgf.png" alt="Snipaste_2020-11-23_16-25-46.png"></p>
+<h4 id="确定使用哪种容器"><a href="#确定使用哪种容器" class="headerlink" title="确定使用哪种容器"></a>确定使用哪种容器</h4><p>·除非有很好的理由选择其他容器，否则用vector<br>·有很多小的元素，且空间额外开销很重要，则不用list或forward_list<br>·要求随机访问元素，应使用vector或deque<br>·要求在容器中间插入或删除元素应使用list或forward_list<br>·需要在头尾插入或删除元素，但不会在中间位置，使用deque<br>·只有读取输入时才在中间位置插入，随后需要随机访问元素，则<br>    -首先是否真的需要在中间添加。可能是追加元素后用sort排序<br>    -如果必须在中间插入，考虑输入阶段用list，输入完成后拷贝到vector中</p>
+<h2 id="容器库概览"><a href="#容器库概览" class="headerlink" title="容器库概览"></a>容器库概览</h2><p>·某些操作是所有容器类型都提供的<br>·另外一些仅针对顺序容器、关联容器或无序容器<br>·还有一些只适用于一小部分容器</p>
+<p>容器操作：</p>
+<p><img src="https://i.loli.net/2020/11/23/8IAawbK5RqeGsoD.png" alt="Snipaste_2020-11-23_16-32-42.png"></p>
+<p><img src="https://i.loli.net/2020/11/23/DQtdY4G1qLTnhvI.png" alt="Snipaste_2020-11-23_16-33-02.png"></p>
+<h3 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h3><p>与容器一样，迭代器有公共的接口：如果一个迭代器提供某个操作，那么所有提供相同操作的迭代器对这个操作的实现方式都是相同的</p>
+<h4 id="迭代器范围"><a href="#迭代器范围" class="headerlink" title="迭代器范围"></a>迭代器范围</h4><p>一个迭代器范围(iterator range)由一对迭代器表示，两个别带器分别指向同一个容器中元素或者是尾元素之后的位置(one past the last element)<br>这种元素范围被称为左闭合区间[begin,end)</p>
+<p>使用左闭合范围：<br>·如果begin与end相等，则范围为空<br>·如果begin与end不等，则范围至少包含一个元素，且begin指向该范围中的第一个元素<br>·可以对begin递增若干次，使得begin==end</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/07/14/case%2001--get%20score/" class="archive-article-date">
-  <time datetime="2020-07-14T05:35:54.668Z" itemprop="datePublished">Jul 14</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/14/case%2001--get%20score/">case 01--get score</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/07/14/cpp%20notes%20deque/" class="archive-article-date">
-  <time datetime="2020-07-14T04:46:11.884Z" itemprop="datePublished">Jul 14</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/11/23/ncpp-09/" data-id="ckshgb0yh00005gve8zp8ca4c" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/14/cpp%20notes%20deque/">cpp notes--deque</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/07/13/problem%20library%2001/" class="archive-article-date">
-  <time datetime="2020-07-13T14:51:44.247Z" itemprop="datePublished">Jul 13</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/13/problem%20library%2001/">problem library 01</a>
-    </h1>
-  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/02-cpp-primer/" rel="tag">02 cpp primer</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/11/22/ncpp-08/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ncpp-08</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/07/13/cpp%20notes%20vector%2002/" class="archive-article-date">
-  <time datetime="2020-07-13T11:08:09.539Z" itemprop="datePublished">Jul 13</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/13/cpp%20notes%20vector%2002/">cpp notes--vector 02</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/07/13/cpp%20notes%20string%2002/" class="archive-article-date">
-  <time datetime="2020-07-13T03:58:29.316Z" itemprop="datePublished">Jul 13</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/13/cpp%20notes%20string%2002/">cpp notes--string 02</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/07/12/cpp%20notes%20string%2001/" class="archive-article-date">
-  <time datetime="2020-07-12T15:06:53.872Z" itemprop="datePublished">Jul 12</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/12/cpp%20notes%20string%2001/">cpp notes--string 01</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/07/12/cpp%20notes%20vector%2001/" class="archive-article-date">
-  <time datetime="2020-07-12T12:32:50.022Z" itemprop="datePublished">Jul 12</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/12/cpp%20notes%20vector%2001/">cpp notes--vector 01</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/07/12/hello-world/" class="archive-article-date">
-  <time datetime="2020-07-12T12:31:01.680Z" itemprop="datePublished">Jul 12</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/12/hello-world/">Hello World</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/archives/page/5/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><span class="page-number current">6</span>
-  </nav>
 
 </section>
         
